@@ -1,0 +1,266 @@
+﻿{
+    "META":  {
+                 "ID":  "ORA_BOOTSTRAP_SAMPLE_001",
+                 "VERSION":  "0.1.0",
+                 "MODE":  "FACT_STRICT",
+                 "HASH":  "493311135365381b05b01b43efb73fe23c1fb4888afbdb810a924908ba8df99b"
+             },
+    "HGOV":  {
+                 "RiskScore":  30,
+                 "RiskLevel":  "MID",
+                 "PremiseStatus":  "CONFIRMED",
+                 "Policy":  "QUALIFY",
+                 "Triggers":  [
+                                  "fact_strict_mode",
+                                  "missing_source:glyph_registry_complete"
+                              ]
+             },
+    "LETTER_BRIDGE":  {
+                          "HasLetterBridge":  true,
+                          "Profile":  "LETTER_GLYPH_BRIDGE_V1",
+                          "RequiredForBackend":  true,
+                          "Status":  "VALID",
+                          "CanonicalLetters":  "GL-M|GL-Q|GL-D",
+                          "DerivedGlyphSequence":  "AON^|TRIA|NOVEN",
+                          "DerivedGlyphTokens":  [
+                                                     {
+                                                         "glyph_id":  "GL-01",
+                                                         "modifiers":  [
+                                                                           "CIRCUMFLEX"
+                                                                       ]
+                                                     },
+                                                     {
+                                                         "glyph_id":  "GL-03",
+                                                         "modifiers":  [
+
+                                                                       ]
+                                                     },
+                                                     {
+                                                         "glyph_id":  "GL-09",
+                                                         "modifiers":  [
+
+                                                                       ]
+                                                     }
+                                                 ],
+                          "Issues":  [
+
+                                     ],
+                          "Tokens":  [
+                                         {
+                                             "LetterToken":  "GL-M",
+                                             "AsciiAlias":  "M",
+                                             "SemanticRole":  "memory_map",
+                                             "TargetGlyphId":  "GL-01",
+                                             "TargetAscii":  "AON",
+                                             "Relation":  "MODIFIER_AUGMENTED",
+                                             "Confidence":  0.58,
+                                             "Modifiers":  [
+                                                               "CIRCUMFLEX"
+                                                           ]
+                                         },
+                                         {
+                                             "LetterToken":  "GL-Q",
+                                             "AsciiAlias":  "Q",
+                                             "SemanticRole":  "query_quality",
+                                             "TargetGlyphId":  "GL-03",
+                                             "TargetAscii":  "TRIA",
+                                             "Relation":  "CALIBRATION_BALANCE",
+                                             "Confidence":  0.69,
+                                             "Modifiers":  [
+
+                                                           ]
+                                         },
+                                         {
+                                             "LetterToken":  "GL-D",
+                                             "AsciiAlias":  "D",
+                                             "SemanticRole":  "decision_delta",
+                                             "TargetGlyphId":  "GL-09",
+                                             "TargetAscii":  "NOVEN",
+                                             "Relation":  "DELTA_TRANSITION",
+                                             "Confidence":  0.84,
+                                             "Modifiers":  [
+
+                                                           ]
+                                         }
+                                     ],
+                          "BridgeVersion":  "0.1.0"
+                      },
+    "GLYPH_UI":  {
+                     "HasGlyphUi":  true,
+                     "Profile":  "GLYPH_UI_V1",
+                     "RequiredForBackend":  true,
+                     "Status":  "VALID",
+                     "CanonicalSequence":  "AON^|TRIA|NOVEN",
+                     "Issues":  [
+
+                                ],
+                     "Tokens":  [
+                                    {
+                                        "GlyphId":  "GL-01",
+                                        "AsciiAlias":  "AON",
+                                        "DisplayName":  "Aon",
+                                        "BackendSafe":  true,
+                                        "UiOnly":  false,
+                                        "Modifiers":  [
+                                                          "CIRCUMFLEX"
+                                                      ]
+                                    },
+                                    {
+                                        "GlyphId":  "GL-03",
+                                        "AsciiAlias":  "TRIA",
+                                        "DisplayName":  "Tria",
+                                        "BackendSafe":  true,
+                                        "UiOnly":  false,
+                                        "Modifiers":  [
+
+                                                      ]
+                                    },
+                                    {
+                                        "GlyphId":  "GL-09",
+                                        "AsciiAlias":  "NOVEN",
+                                        "DisplayName":  "Noven",
+                                        "BackendSafe":  true,
+                                        "UiOnly":  false,
+                                        "Modifiers":  [
+
+                                                      ]
+                                    }
+                                ],
+                     "RegistryVersion":  "0.1.0"
+                 },
+    "JSON":  {
+                 "META":  {
+                              "ID":  "ORA_BOOTSTRAP_SAMPLE_001",
+                              "VERSION":  "0.1.0",
+                              "MODE":  "FACT_STRICT",
+                              "INTENT":  "Bootstrap the Ora_Core_Os backend semantic pipeline",
+                              "STRICT_TEMPLATE":  true
+                          },
+                 "SPEC":  {
+                              "domain":  "backend_runtime_bootstrap"
+                          },
+                 "SEMANTIC":  {
+                                  "INTENT":  "Compile a backend packet",
+                                  "EMO":  "calm determination",
+                                  "GL_TRANS":  "\u003cBOOT-\u003eROUTE\u003e Σ(5-\u003e9)"
+                              },
+                 "LETTER_BRIDGE":  {
+                                       "profile":  "LETTER_GLYPH_BRIDGE_V1",
+                                       "required_for_backend":  true,
+                                       "sequence":  [
+                                                        "GL-M",
+                                                        "GL-Q",
+                                                        "GL-D"
+                                                    ]
+                                   },
+                 "GLYPH_UI":  {
+                                  "profile":  "GLYPH_UI_V1",
+                                  "required_for_backend":  true,
+                                  "sequence":  [
+                                                   {
+                                                       "glyph_id":  "GL-01",
+                                                       "modifier":  "CIRCUMFLEX"
+                                                   },
+                                                   {
+                                                       "glyph_id":  "GL-03"
+                                                   },
+                                                   {
+                                                       "glyph_id":  "GL-09"
+                                                   }
+                                               ]
+                              },
+                 "CONSTRAINTS":  [
+                                     {
+                                         "key":  "backend_authority",
+                                         "rule":  "Route decisions must use GL and GL_G only"
+                                     },
+                                     {
+                                         "key":  "uncertainty_preserved",
+                                         "rule":  "Uncertainty must survive compression and routing"
+                                     }
+                                 ],
+                 "ASSERTIONS":  [
+                                    {
+                                        "rule":  "GL is the semantic authority on backend",
+                                        "pass":  true
+                                    },
+                                    {
+                                        "rule":  "Derived renders add no new facts",
+                                        "pass":  true
+                                    }
+                                ],
+                 "FACTS":  [
+                               {
+                                   "key":  "canonical_layer",
+                                   "value":  "GL",
+                                   "confidence":  1.0,
+                                   "source":  "internal_spec"
+                               },
+                               {
+                                   "key":  "backend_lang",
+                                   "value":  "GL_G",
+                                   "confidence":  1.0,
+                                   "source":  "internal_spec"
+                               },
+                               {
+                                   "key":  "glyph_registry_complete",
+                                   "value":  "false",
+                                   "confidence":  0.55
+                               }
+                           ],
+                 "ROUTING":  {
+                                 "module":  "RUNTIME_BOOTSTRAP",
+                                 "mode":  "FACT_STRICT"
+                             },
+                 "CONTEXT":  {
+                                 "recent_topic":  false,
+                                 "premise_unverified":  false,
+                                 "conflict_with_canon":  false
+                             }
+             },
+    "GL":  [
+               "LIMIT(key=\"backend_authority\",rule=\"Route decisions must use GL and GL_G only\")",
+               "LIMIT(key=\"uncertainty_preserved\",rule=\"Uncertainty must survive compression and routing\")",
+               "ASSERT(rule=\"Derived renders add no new facts\",pass=true)",
+               "ASSERT(rule=\"GL is the semantic authority on backend\",pass=true)",
+               "ASSERT(rule=\"GLYPH_UI registry validation\",pass=true)",
+               "ASSERT(rule=\"LETTER_BRIDGE resolution\",pass=true)",
+               "FACT(key=\"backend_lang\",val=\"GL_G\",conf=1)",
+               "FACT(key=\"canonical_layer\",val=\"GL\",conf=1)",
+               "SOURCE(key=\"backend_lang\",ref=\"internal_spec\")",
+               "SOURCE(key=\"canonical_layer\",ref=\"internal_spec\")",
+               "STATE(name=\"PREMISE_STATUS\",val=\"CONFIRMED\")",
+               "STATE(name=\"POLICY\",val=\"QUALIFY\")",
+               "STATE(name=\"GL_TRANS\",val=\"\u003cBOOT-\u003eROUTE\u003e Σ(5-\u003e9)\")",
+               "STATE(name=\"GLYPH_UI_STATUS\",val=\"VALID\")",
+               "STATE(name=\"GLYPH_UI_PROFILE\",val=\"GLYPH_UI_V1\")",
+               "STATE(name=\"GLYPH_UI_ASCII\",val=\"AON^|TRIA|NOVEN\")",
+               "STATE(name=\"LETTER_BRIDGE_STATUS\",val=\"VALID\")",
+               "STATE(name=\"LETTER_BRIDGE_TOKENS\",val=\"GL-M|GL-Q|GL-D\")",
+               "STATE(name=\"LETTER_BRIDGE_GLYPH\",val=\"AON^|TRIA|NOVEN\")",
+               "RISK(level=\"MID\")",
+               "UNSURE(key=\"glyph_registry_complete\",reason=\"missing_source\",conf=0.55)"
+           ],
+    "GL_G":  [
+                 "IDX(key=\"ORA_BOOTSTRAP_SAMPLE_001\")",
+                 "TAG(ns=\"ORA\",name=\"GPV2\")",
+                 "TAG(ns=\"MODE\",name=\"FACT_STRICT\")",
+                 "TAG(ns=\"GLYPH\",name=\"PRESENT\")",
+                 "TAG(ns=\"BRIDGE\",name=\"LETTER_PRESENT\")",
+                 "STAT(risk=\"MID\",uncertainty=\"1\")",
+                 "HASH(algo=\"sha256\",val=\"493311135365381b05b01b43efb73fe23c1fb4888afbdb810a924908ba8df99b\")",
+                 "ROUTE(module=\"RUNTIME_BOOTSTRAP\",mode=\"FACT_STRICT\")",
+                 "PACK(name=\"glyph_profile\",val=\"GLYPH_UI_V1\")",
+                 "PACK(name=\"glyph_ascii\",val=\"AON^|TRIA|NOVEN\")",
+                 "PACK(name=\"letter_tokens\",val=\"GL-M|GL-Q|GL-D\")",
+                 "PACK(name=\"letter_glyph_ascii\",val=\"AON^|TRIA|NOVEN\")",
+                 "PACK(name=\"gl_count\",val=\"21\")",
+                 "PACK(name=\"gl_canon_b64\",val=\"TElNSVQoa2V5PSJiYWNrZW5kX2F1dGhvcml0eSIscnVsZT0iUm91dGUgZGVjaXNpb25zIG11c3QgdXNlIEdMIGFuZCBHTF9HIG9ubHkiKQpMSU1JVChrZXk9InVuY2VydGFpbnR5X3ByZXNlcnZlZCIscnVsZT0iVW5jZXJ0YWludHkgbXVzdCBzdXJ2aXZlIGNvbXByZXNzaW9uIGFuZCByb3V0aW5nIikKQVNTRVJUKHJ1bGU9IkRlcml2ZWQgcmVuZGVycyBhZGQgbm8gbmV3IGZhY3RzIixwYXNzPXRydWUpCkFTU0VSVChydWxlPSJHTCBpcyB0aGUgc2VtYW50aWMgYXV0aG9yaXR5IG9uIGJhY2tlbmQiLHBhc3M9dHJ1ZSkKQVNTRVJUKHJ1bGU9IkdMWVBIX1VJIHJlZ2lzdHJ5IHZhbGlkYXRpb24iLHBhc3M9dHJ1ZSkKQVNTRVJUKHJ1bGU9IkxFVFRFUl9CUklER0UgcmVzb2x1dGlvbiIscGFzcz10cnVlKQpGQUNUKGtleT0iYmFja2VuZF9sYW5nIix2YWw9IkdMX0ciLGNvbmY9MSkKRkFDVChrZXk9ImNhbm9uaWNhbF9sYXllciIsdmFsPSJHTCIsY29uZj0xKQpTT1VSQ0Uoa2V5PSJiYWNrZW5kX2xhbmciLHJlZj0iaW50ZXJuYWxfc3BlYyIpClNPVVJDRShrZXk9ImNhbm9uaWNhbF9sYXllciIscmVmPSJpbnRlcm5hbF9zcGVjIikKU1RBVEUobmFtZT0iUFJFTUlTRV9TVEFUVVMiLHZhbD0iQ09ORklSTUVEIikKU1RBVEUobmFtZT0iUE9MSUNZIix2YWw9IlFVQUxJRlkiKQpTVEFURShuYW1lPSJHTF9UUkFOUyIsdmFsPSI8Qk9PVC0+Uk9VVEU+IM6jKDUtPjkpIikKU1RBVEUobmFtZT0iR0xZUEhfVUlfU1RBVFVTIix2YWw9IlZBTElEIikKU1RBVEUobmFtZT0iR0xZUEhfVUlfUFJPRklMRSIsdmFsPSJHTFlQSF9VSV9WMSIpClNUQVRFKG5hbWU9IkdMWVBIX1VJX0FTQ0lJIix2YWw9IkFPTl58VFJJQXxOT1ZFTiIpClNUQVRFKG5hbWU9IkxFVFRFUl9CUklER0VfU1RBVFVTIix2YWw9IlZBTElEIikKU1RBVEUobmFtZT0iTEVUVEVSX0JSSURHRV9UT0tFTlMiLHZhbD0iR0wtTXxHTC1RfEdMLUQiKQpTVEFURShuYW1lPSJMRVRURVJfQlJJREdFX0dMWVBIIix2YWw9IkFPTl58VFJJQXxOT1ZFTiIpClJJU0sobGV2ZWw9Ik1JRCIpClVOU1VSRShrZXk9ImdseXBoX3JlZ2lzdHJ5X2NvbXBsZXRlIixyZWFzb249Im1pc3Npbmdfc291cmNlIixjb25mPTAuNTUp\")"
+             ],
+    "VALIDATION":  {
+                       "Pass":  true,
+                       "Issues":  [
+
+                                  ]
+                   }
+}

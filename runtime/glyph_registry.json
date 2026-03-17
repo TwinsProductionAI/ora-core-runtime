@@ -1,0 +1,201 @@
+﻿{
+  "META": {
+    "ID": "ORA_GLYPH_UI_REGISTRY",
+    "VERSION": "0.1.0",
+    "PROFILE": "GLYPH_UI_V1",
+    "STATUS": "PARTIAL",
+    "BACKEND_RULE": "Backend usage requires ASCII alias and BACKEND_SAFE=true.",
+    "NOTES": [
+      "Operator glyphs remain UI_ONLY until semantic compiler rules are formalized.",
+      "The bridge between GL-A..GL-Z and GL-01..GL-13 remains descriptive, not normative."
+    ]
+  },
+  "MODIFIER_MAP": {
+    "CIRCUMFLEX": "^",
+    "DIAERESIS": ":",
+    "TILDE": "~",
+    "BREATH": "o"
+  },
+  "entries": [
+    {
+      "GLYPH_ID": "GL-01",
+      "ASCII_ALIAS": "AON",
+      "DISPLAY_NAME": "Aon",
+      "PHON": "[a i]",
+      "SEMANTIC_ROLE": "origin_source_flux",
+      "CATEGORY": "phonetic_unit",
+      "ALLOWED_MODIFIERS": ["CIRCUMFLEX", "DIAERESIS", "TILDE", "BREATH"],
+      "BACKEND_SAFE": true,
+      "UI_ONLY": false,
+      "NORMATIVE_STATUS": "CANONICAL"
+    },
+    {
+      "GLYPH_ID": "GL-02",
+      "ASCII_ALIAS": "DYNE",
+      "DISPLAY_NAME": "Dyne",
+      "PHON": "[dn]",
+      "SEMANTIC_ROLE": "primary_impulse",
+      "CATEGORY": "phonetic_unit",
+      "ALLOWED_MODIFIERS": ["CIRCUMFLEX", "DIAERESIS", "TILDE", "BREATH"],
+      "BACKEND_SAFE": true,
+      "UI_ONLY": false,
+      "NORMATIVE_STATUS": "CANONICAL"
+    },
+    {
+      "GLYPH_ID": "GL-03",
+      "ASCII_ALIAS": "TRIA",
+      "DISPLAY_NAME": "Tria",
+      "PHON": "[tri]",
+      "SEMANTIC_ROLE": "vector_balance",
+      "CATEGORY": "phonetic_unit",
+      "ALLOWED_MODIFIERS": ["CIRCUMFLEX", "DIAERESIS", "TILDE", "BREATH"],
+      "BACKEND_SAFE": true,
+      "UI_ONLY": false,
+      "NORMATIVE_STATUS": "CANONICAL"
+    },
+    {
+      "GLYPH_ID": "GL-04",
+      "ASCII_ALIAS": "QUARN",
+      "DISPLAY_NAME": "Quarn",
+      "PHON": "[kwarn]",
+      "SEMANTIC_ROLE": "gravitational_expansion",
+      "CATEGORY": "phonetic_unit",
+      "ALLOWED_MODIFIERS": ["CIRCUMFLEX", "DIAERESIS", "TILDE", "BREATH"],
+      "BACKEND_SAFE": true,
+      "UI_ONLY": false,
+      "NORMATIVE_STATUS": "CANONICAL"
+    },
+    {
+      "GLYPH_ID": "GL-05",
+      "ASCII_ALIAS": "PENTH",
+      "DISPLAY_NAME": "Penth",
+      "PHON": "[pat]",
+      "SEMANTIC_ROLE": "anchor_structure",
+      "CATEGORY": "phonetic_unit",
+      "ALLOWED_MODIFIERS": ["CIRCUMFLEX", "DIAERESIS", "TILDE", "BREATH"],
+      "BACKEND_SAFE": true,
+      "UI_ONLY": false,
+      "NORMATIVE_STATUS": "CANONICAL"
+    },
+    {
+      "GLYPH_ID": "GL-06",
+      "ASCII_ALIAS": "SEPH",
+      "DISPLAY_NAME": "Seph",
+      "PHON": "[sef]",
+      "SEMANTIC_ROLE": "gated_branch",
+      "CATEGORY": "phonetic_unit",
+      "ALLOWED_MODIFIERS": ["CIRCUMFLEX", "DIAERESIS", "TILDE", "BREATH"],
+      "BACKEND_SAFE": true,
+      "UI_ONLY": false,
+      "NORMATIVE_STATUS": "PROVISIONAL"
+    },
+    {
+      "GLYPH_ID": "GL-07",
+      "ASCII_ALIAS": "OCTE",
+      "DISPLAY_NAME": "Octe",
+      "PHON": "[sf]",
+      "SEMANTIC_ROLE": "square_loop",
+      "CATEGORY": "phonetic_unit",
+      "ALLOWED_MODIFIERS": ["CIRCUMFLEX", "DIAERESIS", "TILDE", "BREATH"],
+      "BACKEND_SAFE": true,
+      "UI_ONLY": false,
+      "NORMATIVE_STATUS": "PROVISIONAL"
+    },
+    {
+      "GLYPH_ID": "GL-08",
+      "ASCII_ALIAS": "OCTEN",
+      "DISPLAY_NAME": "Octen",
+      "PHON": "[otth]",
+      "SEMANTIC_ROLE": "angled_transition",
+      "CATEGORY": "phonetic_unit",
+      "ALLOWED_MODIFIERS": ["CIRCUMFLEX", "DIAERESIS", "TILDE", "BREATH"],
+      "BACKEND_SAFE": true,
+      "UI_ONLY": false,
+      "NORMATIVE_STATUS": "PROVISIONAL"
+    },
+    {
+      "GLYPH_ID": "GL-09",
+      "ASCII_ALIAS": "NOVEN",
+      "DISPLAY_NAME": "Noven",
+      "PHON": "[no en]",
+      "SEMANTIC_ROLE": "mutation_transition",
+      "CATEGORY": "phonetic_unit",
+      "ALLOWED_MODIFIERS": ["CIRCUMFLEX", "DIAERESIS", "TILDE", "BREATH"],
+      "BACKEND_SAFE": true,
+      "UI_ONLY": false,
+      "NORMATIVE_STATUS": "CANONICAL"
+    },
+    {
+      "GLYPH_ID": "GL-13",
+      "ASCII_ALIAS": "NULLA",
+      "DISPLAY_NAME": "Nulla",
+      "PHON": "[nyla]",
+      "SEMANTIC_ROLE": "neutral_return",
+      "CATEGORY": "phonetic_unit",
+      "ALLOWED_MODIFIERS": ["CIRCUMFLEX", "DIAERESIS", "TILDE", "BREATH"],
+      "BACKEND_SAFE": true,
+      "UI_ONLY": false,
+      "NORMATIVE_STATUS": "CANONICAL"
+    },
+    {
+      "GLYPH_ID": "OP-ACOUE",
+      "ASCII_ALIAS": "ACOUE",
+      "DISPLAY_NAME": "Acoue",
+      "PHON": "n/a",
+      "SEMANTIC_ROLE": "lensity_marker",
+      "CATEGORY": "ui_operator",
+      "ALLOWED_MODIFIERS": [],
+      "BACKEND_SAFE": false,
+      "UI_ONLY": true,
+      "NORMATIVE_STATUS": "UI_ONLY"
+    },
+    {
+      "GLYPH_ID": "OP-GRIGUVE",
+      "ASCII_ALIAS": "GRIGUVE",
+      "DISPLAY_NAME": "Griguve",
+      "PHON": "n/a",
+      "SEMANTIC_ROLE": "gravity_focus_marker",
+      "CATEGORY": "ui_operator",
+      "ALLOWED_MODIFIERS": [],
+      "BACKEND_SAFE": false,
+      "UI_ONLY": true,
+      "NORMATIVE_STATUS": "UI_ONLY"
+    },
+    {
+      "GLYPH_ID": "OP-CONTINU",
+      "ASCII_ALIAS": "CONTINU",
+      "DISPLAY_NAME": "Continu",
+      "PHON": "n/a",
+      "SEMANTIC_ROLE": "continuity_marker",
+      "CATEGORY": "ui_operator",
+      "ALLOWED_MODIFIERS": [],
+      "BACKEND_SAFE": false,
+      "UI_ONLY": true,
+      "NORMATIVE_STATUS": "UI_ONLY"
+    },
+    {
+      "GLYPH_ID": "OP-SOURCE_NODE",
+      "ASCII_ALIAS": "SOURCE_NODE",
+      "DISPLAY_NAME": "Source",
+      "PHON": "n/a",
+      "SEMANTIC_ROLE": "source_marker",
+      "CATEGORY": "ui_operator",
+      "ALLOWED_MODIFIERS": [],
+      "BACKEND_SAFE": false,
+      "UI_ONLY": true,
+      "NORMATIVE_STATUS": "UI_ONLY"
+    },
+    {
+      "GLYPH_ID": "OP-CENTRE",
+      "ASCII_ALIAS": "CENTRE",
+      "DISPLAY_NAME": "Centre",
+      "PHON": "n/a",
+      "SEMANTIC_ROLE": "center_marker",
+      "CATEGORY": "ui_operator",
+      "ALLOWED_MODIFIERS": [],
+      "BACKEND_SAFE": false,
+      "UI_ONLY": true,
+      "NORMATIVE_STATUS": "UI_ONLY"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+﻿{
+  "META": {
+    "ID": "ORA_BOOTSTRAP_SAMPLE_001",
+    "VERSION": "0.1.0",
+    "MODE": "FACT_STRICT",
+    "INTENT": "Bootstrap the Ora_Core_Os backend semantic pipeline",
+    "STRICT_TEMPLATE": true
+  },
+  "SPEC": {
+    "domain": "backend_runtime_bootstrap"
+  },
+  "SEMANTIC": {
+    "INTENT": "Compile a backend packet",
+    "EMO": "calm determination",
+    "GL_TRANS": "<BOOT->ROUTE> Σ(5->9)"
+  },
+  "LETTER_BRIDGE": {
+    "profile": "LETTER_GLYPH_BRIDGE_V1",
+    "required_for_backend": true,
+    "sequence": [
+      "GL-M",
+      "GL-Q",
+      "GL-D"
+    ]
+  },
+  "GLYPH_UI": {
+    "profile": "GLYPH_UI_V1",
+    "required_for_backend": true,
+    "sequence": [
+      {
+        "glyph_id": "GL-01",
+        "modifier": "CIRCUMFLEX"
+      },
+      {
+        "glyph_id": "GL-03"
+      },
+      {
+        "glyph_id": "GL-09"
+      }
+    ]
+  },
+  "CONSTRAINTS": [
+    {
+      "key": "backend_authority",
+      "rule": "Route decisions must use GL and GL_G only"
+    },
+    {
+      "key": "uncertainty_preserved",
+      "rule": "Uncertainty must survive compression and routing"
+    }
+  ],
+  "ASSERTIONS": [
+    {
+      "rule": "GL is the semantic authority on backend",
+      "pass": true
+    },
+    {
+      "rule": "Derived renders add no new facts",
+      "pass": true
+    }
+  ],
+  "FACTS": [
+    {
+      "key": "canonical_layer",
+      "value": "GL",
+      "confidence": 1.0,
+      "source": "internal_spec"
+    },
+    {
+      "key": "backend_lang",
+      "value": "GL_G",
+      "confidence": 1.0,
+      "source": "internal_spec"
+    },
+    {
+      "key": "glyph_registry_complete",
+      "value": "false",
+      "confidence": 0.55
+    }
+  ],
+  "ROUTING": {
+    "module": "RUNTIME_BOOTSTRAP",
+    "mode": "FACT_STRICT"
+  },
+  "CONTEXT": {
+    "recent_topic": false,
+    "premise_unverified": false,
+    "conflict_with_canon": false
+  }
+}

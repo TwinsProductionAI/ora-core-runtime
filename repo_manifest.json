@@ -1,0 +1,17 @@
+﻿{
+  "repo_name": "ora-core-runtime",
+  "license": "Apache-2.0",
+  "status": "publication_ready_local_bundle",
+  "source": "C:/Users/Ora_Core/Documents/02_Projets_Ora_Core/Ora_Core_Os/03_Patches/ORA_CORE_OS_RUNTIME_BOOTSTRAP_V0_1",
+  "public_scope": [
+    "runtime code",
+    "registries",
+    "tests",
+    "samples"
+  ],
+  "private_scope_excluded": [
+    "PME playbooks",
+    "ChatGPT Projects client packs",
+    "commercial service material"
+  ]
+}
