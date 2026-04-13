@@ -1,0 +1,59 @@
+﻿{
+  "META": {
+    "ID": "H_NERONS_SAMPLE_001",
+    "VERSION": "1.0.0",
+    "MODE": "FACT_STRICT",
+    "INTENT": "Qualifier un brouillon factuel avant emission utilisateur."
+  },
+  "PROMPT_TEXT": "Verifie le brouillon, qualifie les claims et degrade les assertions insuffisamment verifiees.",
+  "DRAFT_TEXT": "La norme ISO 27001:2022 est la version de reference pour ce cadre. HelixCloud 4.2 supporte nativement PostgreSQL 17. Le chiffre d'affaires de NovaRetail en mars 2026 est de 12,4 M EUR.",
+  "CONTEXT": {
+    "recent_topic": true,
+    "premise_unverified": false,
+    "conflict_with_canon": false,
+    "high_impact": true
+  },
+  "ROUTING": {
+    "module": "MODULE_H_NERONS_V1_0",
+    "mode": "FACT_STRICT"
+  },
+  "EXTERNAL_EVIDENCE": [
+    {
+      "id": "SRC-001",
+      "claim_index": 1,
+      "source_name": "ISO overview",
+      "source_tier": "official",
+      "freshness_days": 20,
+      "stance": "supports",
+      "snippet": "The ISO 27001:2022 revision is the current reference version."
+    },
+    {
+      "id": "SRC-002",
+      "claim_index": 1,
+      "source_name": "Security partner guide",
+      "source_tier": "recognized_secondary",
+      "freshness_days": 90,
+      "stance": "supports",
+      "snippet": "Partner guidance also aligns on ISO 27001:2022 as the current revision."
+    },
+    {
+      "id": "SRC-003",
+      "claim_index": 2,
+      "source_name": "HelixCloud official release notes",
+      "source_tier": "official",
+      "freshness_days": 10,
+      "stance": "conflicts",
+      "snippet": "Version 4.2 supports PostgreSQL 16 only."
+    },
+    {
+      "id": "SRC-004",
+      "claim_index": 2,
+      "source_name": "Tech benchmark article",
+      "source_tier": "recognized_secondary",
+      "freshness_days": 25,
+      "stance": "supports",
+      "snippet": "A benchmark article reports HelixCloud 4.2 on PostgreSQL 17."
+    }
+  ]
+}
+

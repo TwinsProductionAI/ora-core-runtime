@@ -1,10 +1,11 @@
-﻿{
+{
   "repo_name": "ora-core-runtime",
   "license": "Apache-2.0",
   "status": "publication_ready_local_bundle",
-  "source": "C:/Users/Ora_Core/Documents/02_Projets_Ora_Core/Ora_Core_Os/03_Patches/ORA_CORE_OS_RUNTIME_BOOTSTRAP_V0_1",
+  "source_profile": "public_runtime_bundle_from_ora_core_os_patches",
   "public_scope": [
-    "runtime code",
+    "gpv2 bootstrap runtime code",
+    "H-NERONS runtime module",
     "registries",
     "tests",
     "samples"

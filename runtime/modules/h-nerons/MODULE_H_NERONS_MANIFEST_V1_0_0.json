@@ -1,0 +1,46 @@
+{
+  "manifest_version": "1.0",
+  "module": {
+    "id": "MODULE_H_NERONS_V1_0",
+    "name": "H-NERONS Runtime Pack",
+    "version": "1.0.0",
+    "owner": "Xavier_Fleriag",
+    "label": "Twins_Productions",
+    "summary": "Hybrid factual governance module with claim detection, evidence qualification and bounded pre-emission output.",
+    "status": "PUBLIC_RUNTIME_READY"
+  },
+  "runtime": {
+    "primary": "BACKEND",
+    "module_path": "h_nerons_runtime.psm1",
+    "bootstrap_dependency": "../../gpv2_runtime.psm1",
+    "entry_function": "Invoke-HNeronsAssessment",
+    "commands": {
+      "H-NERONS:STATUS": "Get-HNeronsStatus",
+      "H-NERONS:TRACE": "Get-HNeronsTrace",
+      "H-NERONS:RESET": "Reset-HNeronsSession"
+    }
+  },
+  "documents": {
+    "spec": "MODULE_H_NERONS_GPV2_v1.0.0.json",
+    "readme": "README.md"
+  },
+  "data": {
+    "sample_payload": "sample_payload.json",
+    "local_test": "../../../tests/h_nerons_runtime_test.ps1"
+  },
+  "quality_gates": [
+    "truth_over_comfort",
+    "no_private_data_outbound",
+    "block_strong_claim_if_verification_insufficient",
+    "explicit_uncertainty_when_needed",
+    "weighted_source_selection",
+    "machine_readable_gl_and_glg_trace"
+  ],
+  "integration": {
+    "ora_core_os": true,
+    "hgov_runtime_reused": true,
+    "gpv2_hash_reused": true,
+    "network_optional": true,
+    "local_evidence_bundle_supported": true
+  }
+}

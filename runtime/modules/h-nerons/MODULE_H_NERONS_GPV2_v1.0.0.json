@@ -1,0 +1,379 @@
+﻿{
+  "GPV2": {
+    "META": {
+      "PACK": "ORA_CORE_MODULE",
+      "NAME": "MODULE_H_NERONS",
+      "VERSION": "1.0.0",
+      "OWNER": "Xavier_Fleriag",
+      "FRONTEND_LANG": "FR",
+      "BACKEND_LANG": "GL_G",
+      "TUTOIEMENT": true,
+      "FRONTEND_ONLY": false,
+      "TRUTH_OVER_COMFORT": true,
+      "NO_HALLUCINATION": true,
+      "PRIVACY": "STRICT",
+      "BUILD_LEVEL": "GP_SOURCE_PLUS_GPV2_PLUS_GL_G",
+      "AUDIT_CLASS": "HIGH"
+    },
+    "CONTROL_SHELL": {
+      "ROLE": "hybrid_evidence_regulation_node",
+      "GOAL": "detect_verifiable_claims_verify_externally_qualify_confidence_and_bound_final_output",
+      "CTX": "ora_core_os_pre_emit_factual_governance",
+      "INPUT": [
+        "native_final_draft",
+        "claim_candidates",
+        "freshness_need",
+        "risk_profile",
+        "source_policy",
+        "user_scope_guardrails"
+      ],
+      "C": [
+        "no_private_data_outbound",
+        "prioritize_primary_and_official_sources",
+        "verify_only_when_claim_is_verifiable_and_policy_requires_it",
+        "block_strong_claim_if_verification_insufficient",
+        "make_uncertainty_explicit",
+        "log_qualification_reasons_and_sources"
+      ],
+      "OUT": {
+        "artifacts": [
+          "claim_audit",
+          "qualification_status",
+          "source_trace",
+          "regulated_response",
+          "conflict_notice"
+        ],
+        "format": "json_plus_bounded_text",
+        "apply_mode": "pre_emit_gate_only"
+      },
+      "FAIL": [
+        "web_unavailable=>UNSURE_EXPLICIT",
+        "quota_exceeded=>UNSURE_EXPLICIT",
+        "source_conflict_high=>bounded_answer_plus_conflict_notice",
+        "privacy_risk=>abort_lookup_and_downgrade"
+      ],
+      "CHECK": [
+        "verifiable_claim_detected",
+        "source_authority_ranked",
+        "freshness_fit_to_claim_type",
+        "confidence_qualified",
+        "no_overclaiming_after_regulation"
+      ]
+    },
+    "TECHNICAL_CORE": {
+      "execution_mode": "pre_emit_governance_gate",
+      "read_model": "final_draft_plus_claim_extractor_plus_policy_signals",
+      "write_model": "constrained_regeneration_or_assertiveness_downgrade",
+      "observed_data_classes": [
+        "final_draft",
+        "extracted_claims",
+        "freshness_signals",
+        "risk_flags",
+        "source_candidates",
+        "source_snippets",
+        "query_templates"
+      ],
+      "forbidden_data_classes": [
+        "private_user_payloads_outbound",
+        "credentials",
+        "secret_material",
+        "full_system_prompts",
+        "irrelevant_full_transcripts",
+        "non_allowlisted_sensitive_documents"
+      ],
+      "claim_taxonomy": [
+        "FACT_STATIC",
+        "FACT_DYNAMIC",
+        "NUMERIC_VOLATILE",
+        "RULE_REGULATORY",
+        "TECH_COMPAT",
+        "INTERPRETIVE_CLAIM"
+      ],
+      "qualification_states": [
+        "VERIFIED",
+        "PARTIALLY_VERIFIED",
+        "CONFLICT_DETECTED",
+        "UNSURE_EXTERNAL",
+        "UNSURE_EXPLICIT"
+      ],
+      "source_policy": {
+        "priority_order": [
+          "primary",
+          "official",
+          "recognized_secondary"
+        ],
+        "filters": [
+          "authority",
+          "freshness",
+          "relevance",
+          "inter_source_agreement"
+        ],
+        "minimum_sources_if_high_impact": 2,
+        "freshness_rules": {
+          "FACT_STATIC": "authoritative_source_preferred_freshness_optional",
+          "FACT_DYNAMIC": "recent_source_required",
+          "NUMERIC_VOLATILE": "recent_source_required",
+          "RULE_REGULATORY": "primary_or_official_source_required",
+          "TECH_COMPAT": "vendor_or_official_doc_preferred",
+          "INTERPRETIVE_CLAIM": "bounded_output_even_if_sources_disagree"
+        }
+      },
+      "resource_budgets": {
+        "max_claims_per_pass": 12,
+        "max_sources_per_claim": 5,
+        "max_parallel_lookups": 3,
+        "max_total_lookup_time_ms": 8000,
+        "degrade_if_budget_hit": true
+      },
+      "fallback_mode": "safe_degrade_with_explicit_uncertainty",
+      "idempotency": "same_claims_same_sources_same_status_except_timestamp"
+    },
+    "INTENT_LAYER_FR": {
+      "mission": "Rendre les sorties factuelles plus fiables sans pretendre a l'infaillibilite.",
+      "nuances": [
+        "H-NERONS traite la reponse comme une hypothese a qualifier avant emission.",
+        "La verification externe est un moyen de gouvernance, pas une preuve metaphysique de verite.",
+        "Le module doit savoir ralentir, avertir ou bloquer une assertion trop forte.",
+        "L'incertitude explicite est preferable a une certitude rhetorique fausse."
+      ],
+      "style": [
+        "sobre",
+        "traceable",
+        "anti_overclaim",
+        "verite_sur_confort"
+      ]
+    },
+    "GL_G": {
+      "FACTS": [
+        "FACT(h_nerons.scope,pre_emit_verifiable_claim_governance)",
+        "FACT(h_nerons.truth,weighted_external_crosscheck)",
+        "FACT(h_nerons.privacy,no_private_data_outbound)",
+        "FACT(h_nerons.mode,auto_verify_when_policy_matches)"
+      ],
+      "ASSERTS": [
+        "ASSERT(strong_claim_if_unverified,deny)",
+        "ASSERT(primary_sources,prioritize)",
+        "ASSERT(uncertainty_visibility,mandatory_when_validation_insufficient)",
+        "ASSERT(confidence_state,explicit_for_each_claim)"
+      ],
+      "ROUTES": [
+        "ROUTE(h_nerons,detect_claims)",
+        "ROUTE(h_nerons,lookup_sources)",
+        "ROUTE(h_nerons,cross_check)",
+        "ROUTE(h_nerons,qualify)",
+        "ROUTE(h_nerons,regenerate_or_bound)"
+      ],
+      "RISKS": [
+        "RISK(source_conflict_without_resolution)",
+        "RISK(stale_or_low_authority_source_selection)",
+        "RISK(private_data_leakage_in_queries)",
+        "RISK(latency_blowup_on_high_claim_volume)"
+      ]
+    },
+    "COMPILED_GPV2": "ROLE=hybrid_evidence_regulation_node|GOAL=detect_verifiable_claims_verify_externally_qualify_confidence_and_bound_final_output|CTX=ora_core_os_pre_emit_factual_governance|INPUT=[native_final_draft;claim_candidates;freshness_need;risk_profile;source_policy;user_scope_guardrails]|C=[no_private_data_outbound;prioritize_primary_and_official_sources;verify_only_when_claim_is_verifiable_and_policy_requires_it;block_strong_claim_if_verification_insufficient;make_uncertainty_explicit;log_qualification_reasons_and_sources]|OUT={artifacts=[claim_audit;qualification_status;source_trace;regulated_response;conflict_notice];format=json_plus_bounded_text;apply_mode=pre_emit_gate_only}|FAIL=[web_unavailable=>UNSURE_EXPLICIT;quota_exceeded=>UNSURE_EXPLICIT;source_conflict_high=>bounded_answer_plus_conflict_notice;privacy_risk=>abort_lookup_and_downgrade]|CHECK=[verifiable_claim_detected;source_authority_ranked;freshness_fit_to_claim_type;confidence_qualified;no_overclaiming_after_regulation]",
+    "MODULE_H_NERONS": {
+      "ACTIVE": true,
+      "ROLE": {
+        "NAME": "HybridEvidence_RegulationNode",
+        "POSITION": "BETWEEN_FINAL_DRAFT_AND_USER_EMISSION",
+        "SCOPE": "VERIFIABLE_FACTUAL_CLAIMS_ONLY",
+        "MODE": "AUTO_VERIFY_WHEN_POLICY_MATCHES"
+      },
+      "DEPENDENCIES": [
+        "ORA_CORE_OS_ORCHESTRATEUR_LLM",
+        "ORA_CORE_OS_HGOV_V2_1",
+        "ORA_CORE_OS_GPV2_BACKEND_V2_3"
+      ],
+      "CLAIM_DETECTION": {
+        "TARGET": "NATIVE_FINAL_DRAFT",
+        "CLAIM_TYPES": [
+          "FACT_STATIC",
+          "FACT_DYNAMIC",
+          "NUMERIC_VOLATILE",
+          "RULE_REGULATORY",
+          "TECH_COMPAT",
+          "INTERPRETIVE_CLAIM"
+        ],
+        "SIGNALS": [
+          "named_entities",
+          "dates",
+          "numbers",
+          "laws",
+          "recent_events",
+          "versions",
+          "compatibility"
+        ],
+        "TRIGGER": "IF_VERIFIABLE_CLAIM_AND_POLICY_REQUIRES_CHECK"
+      },
+      "SOURCE_POLICY": {
+        "SELECTION": {
+          "PRIORITY": [
+            "PRIMARY",
+            "OFFICIAL",
+            "RECOGNIZED_SECONDARY"
+          ],
+          "FILTERS": [
+            "AUTHORITY",
+            "FRESHNESS",
+            "RELEVANCE",
+            "INTER_SOURCE_AGREEMENT"
+          ],
+          "MIN_AUTHORITY": "RECOGNIZED_SECONDARY"
+        },
+        "OUTBOUND_PRIVACY": {
+          "PRIVATE_DATA_OUTBOUND": "DENY",
+          "QUERY_REDACTION": "REQUIRED",
+          "USE_ONLY_MINIMAL_PUBLIC_QUERY_TERMS": true
+        },
+        "LOOKUP_MODE": "WEB_LOOKUP",
+        "SOURCE_DECISION_LOG": "REQUIRED"
+      },
+      "CROSS_CHECK_ENGINE": {
+        "INTERNAL": "EXTRACT_LLM_CLAIMS",
+        "EXTERNAL": "COLLECT_WEIGHTED_SOURCES",
+        "CONFIDENCE_MODEL": "WEIGHTED_CONSENSUS_PLUS_FRESHNESS_PLUS_CONFLICT_PENALTY",
+        "LOGIC": {
+          "IF_INTERNAL_MATCHES_EXTERNAL_CONSENSUS": "VERIFIED",
+          "IF_PARTIAL_MATCH": "PARTIALLY_VERIFIED",
+          "IF_SIGNIFICANT_CONFLICT": "CONFLICT_DETECTED",
+          "IF_EXTERNAL_DATA_INSUFFICIENT": "UNSURE_EXTERNAL",
+          "IF_CRITICAL_AND_UNVERIFIED": "UNSURE_EXPLICIT"
+        }
+      },
+      "QUALIFICATION_ENGINE": {
+        "STATUSES": {
+          "VERIFIED": {
+            "ALLOW": true,
+            "ACTION": "ALLOW_NORMAL_FORMULATION"
+          },
+          "PARTIALLY_VERIFIED": {
+            "ALLOW": true,
+            "ACTION": "ALLOW_WITH_SCOPE_LIMIT_AND_EXPLICIT_RESERVES"
+          },
+          "CONFLICT_DETECTED": {
+            "ALLOW": true,
+            "ACTION": "REGENERATE_CONSTRAINED_OR_PRESENT_CONFLICT"
+          },
+          "UNSURE_EXTERNAL": {
+            "ALLOW": true,
+            "ACTION": "DOWNGRADE_ASSERTIVENESS"
+          },
+          "UNSURE_EXPLICIT": {
+            "ALLOW": true,
+            "ACTION": "BLOCK_STRONG_CLAIM_AND_EXPOSE_UNCERTAINTY"
+          }
+        },
+        "HARD_BLOCK_IF": [
+          "critical_claim_and_status_not_verified",
+          "strong_claim_without_sufficient_verification"
+        ]
+      },
+      "REGENERATION_POLICY": {
+        "ALLOW_NEW_FACTS": false,
+        "MUST_KEEP_SCOPE_BOUNDARIES": true,
+        "IF_VERIFIED": "ALLOW_NORMAL",
+        "IF_PARTIALLY_VERIFIED": "LIMIT_SCOPE_AND_EXPOSE_GAPS",
+        "IF_CONFLICT_DETECTED": "REGENERATE_UNDER_EXTERNAL_CONSTRAINTS_OR_EMIT_CONFLICT_NOTICE",
+        "IF_UNSURE_EXTERNAL": "SAFE_DEGRADE_TO_PRUDENT_RESPONSE",
+        "IF_UNSURE_EXPLICIT": "EMIT_CLEAR_UNCERTAINTY_AND_BLOCK_STRONG_ASSERTION"
+      },
+      "OUTPUTS": {
+        "ARTIFACTS": {
+          "CLAIM_AUDIT": {
+            "REQUIRED": true,
+            "FORMAT": "claim_list_with_type_status_and_reason"
+          },
+          "QUALIFICATION_STATUS": {
+            "REQUIRED": true,
+            "FORMAT": "state_per_claim"
+          },
+          "SOURCE_TRACE": {
+            "REQUIRED": true,
+            "FORMAT": "ranked_sources_plus_agreement_signals"
+          },
+          "REGULATED_RESPONSE": {
+            "REQUIRED": true,
+            "FORMAT": "bounded_user_facing_text"
+          },
+          "CONFLICT_NOTICE": {
+            "REQUIRED": false,
+            "FORMAT": "explicit_conflict_summary"
+          },
+          "UNCERTAINTY_NOTICE": {
+            "REQUIRED": false,
+            "FORMAT": "explicit_uncertainty_summary"
+          }
+        },
+        "DELIVERY": {
+          "USER_VISIBLE_ALLOWED_STATUSES": [
+            "VERIFIED",
+            "PARTIALLY_VERIFIED",
+            "UNSURE_EXPLICIT"
+          ],
+          "IF_CONFLICT_DETECTED": "REGENERATE_OR_PRESENT_CONFLICT_WITH_BOUNDED_ASSERTIONS",
+          "IF_UNSURE_EXTERNAL": "MAP_TO_EXPLICIT_PRUDENCE",
+          "TAGS": [
+            "SOURCE_VERIFIED_WEB",
+            "SOURCE_PARTIAL_WEB",
+            "SOURCE_CONFLICT_RESOLVED",
+            "SOURCE_UNSURE_EXTERNAL"
+          ]
+        }
+      },
+      "SAFETY_LAWS": {
+        "HNERONS_01": "Ne_jamais_confondre_verification_externe_et_verite_absolue",
+        "HNERONS_02": "Ne_jamais_envoyer_de_donnees_privees_dans_les_requetes_externes",
+        "HNERONS_03": "Bloquer_l_assertivite_forte_si_la_verification_est_insuffisante",
+        "HNERONS_04": "Rendre_l_incertitude_visible_plutot_que_de_la_masquer",
+        "HNERONS_05": "Prioriser_les_sources_primaires_ou_officielles_quand_elles_existent",
+        "HNERONS_06": "Journaliser_les_raisons_de_qualification_pour_audit"
+      },
+      "THREAT_MODEL": {
+        "RISKS": [
+          "source_poisoning_or_low_authority_results",
+          "stale_sources_on_dynamic_claims",
+          "private_data_leakage_in_queries",
+          "false_consensus_from_weak_sources",
+          "latency_spike_under_high_claim_volume"
+        ],
+        "MITIGATIONS": [
+          "authority_rank_and_source_filters",
+          "freshness_requirement_by_claim_type",
+          "query_redaction_and_no_private_data_outbound",
+          "weighted_consensus_not_top_k_only",
+          "safe_degrade_when_budget_or_lookup_fails"
+        ]
+      },
+      "TELEMETRY": {
+        "LOGGING": "MINIMAL_AUDITABLE",
+        "FIELDS": [
+          "timestamp",
+          "request_id",
+          "claim_count",
+          "claim_types",
+          "status_distribution",
+          "selected_sources",
+          "conflict_rate",
+          "degrade_mode",
+          "lookup_latency_ms"
+        ],
+        "RETENTION_DAYS": 7,
+        "NO_PRIVATE_CONTENT_STORAGE": true
+      },
+      "TRIGGERS": {
+        "AUTO": {
+          "ON": "pre_emit_if_verifiable_claim_detected",
+          "RUN_ONLY_IF": "factual_risk_or_freshness_signal_present",
+          "BYPASS_IF": "no_verifiable_claims_and_low_risk"
+        },
+        "MANUAL": {
+          "COMMANDS": [
+            "H-NERONS:VERIFY",
+            "H-NERONS:REPORT",
+            "H-NERONS:SAFE_MODE"
+          ]
+        }
+      }
+    }
+  }
+}

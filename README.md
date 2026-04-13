@@ -1,4 +1,4 @@
-﻿# ora-core-runtime
+# ora-core-runtime
 
 Public runtime bundle for the latest technical Ora_Core_Os modules.
 
@@ -8,6 +8,7 @@ This repository is the publication-ready public bundle for:
 - HGOV-aware runtime bootstrap
 - GPV2 parsing and compilation
 - GL and GL_G primitives handling
+- H-NERONS pre-emission factual governance runtime
 - glyph registry and letter bridge registry
 - PowerShell tests and runnable samples
 
@@ -30,7 +31,16 @@ These files are technical assets that benefit from:
 - `runtime/run_sample.ps1`
 - `runtime/sample_payload.json`
 - `runtime/sample_output.json`
+- `runtime/modules/h-nerons/*`
 - `tests/*.ps1`
+
+## H-NERONS module
+
+The `runtime/modules/h-nerons` bundle provides:
+- claim detection on the final draft
+- evidence qualification into `VERIFIED`, `PARTIALLY_VERIFIED`, `CONFLICT_DETECTED`, `UNSURE_EXTERNAL`, `UNSURE_EXPLICIT`
+- bounded regeneration with GL and GL_G audit trace
+- local evidence bundle support without mandatory live web access
 
 ## Deliberately excluded
 
@@ -58,9 +68,11 @@ It is useful, testable and publishable, but not yet a fully industrialized produ
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\runtime\run_sample.ps1
+powershell -ExecutionPolicy Bypass -File .\runtime\modules\h-nerons\run_sample.ps1
 powershell -ExecutionPolicy Bypass -File .\tests\smoke_test.ps1
 powershell -ExecutionPolicy Bypass -File .\tests\glyph_ui_registry_test.ps1
 powershell -ExecutionPolicy Bypass -File .\tests\letter_bridge_test.ps1
+powershell -ExecutionPolicy Bypass -File .\tests\h_nerons_runtime_test.ps1
 ```
 
 ## Next steps
