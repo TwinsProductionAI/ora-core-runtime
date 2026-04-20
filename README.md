@@ -1,10 +1,21 @@
 # ora-core-runtime
 
-Public runtime bundle for the latest technical Ora_Core_Os modules.
+Runnable bootstrap runtime for ORA Core OS.
+
+This repository contains the public runtime bundle for the latest technical ORA Core OS modules: GPV2 parsing, GL/GL_G primitive handling, glyph registries, H-NERONS governance, runnable samples, and PowerShell tests.
+
+## Repository Role
+
+Read this after [ora-core-os](https://github.com/TwinsProductionAI/Coeur_ORA_GrenaPrompt_repo) when you want executable material instead of architecture documents.
+
+| Public order | Repository role |
+| ---: | --- |
+| 2 | Runtime code, samples, registries, and tests. |
 
 ## Scope
 
 This repository is the publication-ready public bundle for:
+
 - HGOV-aware runtime bootstrap
 - GPV2 parsing and compilation
 - GL and GL_G primitives handling
@@ -12,15 +23,16 @@ This repository is the publication-ready public bundle for:
 - glyph registry and letter bridge registry
 - PowerShell tests and runnable samples
 
-## Why this repo is public
+## Why This Repo Is Public
 
 These files are technical assets that benefit from:
+
 - versioning
 - peer review
 - reproducibility
 - external implementation and integration
 
-## Included material
+## Included Material
 
 - `runtime/gpv2_runtime.psm1`
 - `runtime/gpv2_letter_bridge.ps1`
@@ -34,37 +46,16 @@ These files are technical assets that benefit from:
 - `runtime/modules/h-nerons/*`
 - `tests/*.ps1`
 
-## H-NERONS module
+## H-NERONS Module
 
 The `runtime/modules/h-nerons` bundle provides:
+
 - claim detection on the final draft
 - evidence qualification into `VERIFIED`, `PARTIALLY_VERIFIED`, `CONFLICT_DETECTED`, `UNSURE_EXTERNAL`, `UNSURE_EXPLICIT`
 - bounded regeneration with GL and GL_G audit trace
 - local evidence bundle support without mandatory live web access
 
-## Deliberately excluded
-
-This public repo does not include:
-- client-specific PME playbooks
-- ChatGPT Projects deployment packs
-- private project instructions for client delivery
-- commercial onboarding material
-- brand-sensitive service collateral
-
-## License
-
-Code and technical runtime material in this repository are released under Apache 2.0.
-See `LICENSE` and `NOTICE`.
-
-Trademark, branding and visual identity rights are not granted.
-See `TRADEMARKS.md`.
-
-## Current status
-
-This is still a bootstrap runtime.
-It is useful, testable and publishable, but not yet a fully industrialized product runtime.
-
-## Quick start
+## Quick Start
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\runtime\run_sample.ps1
@@ -75,9 +66,38 @@ powershell -ExecutionPolicy Bypass -File .\tests\letter_bridge_test.ps1
 powershell -ExecutionPolicy Bypass -File .\tests\h_nerons_runtime_test.ps1
 ```
 
-## Next steps
+## Public Repository Map
+
+| Order | Repository | Role |
+| ---: | --- | --- |
+| 1 | [ora-core-os](https://github.com/TwinsProductionAI/Coeur_ORA_GrenaPrompt_repo) | Architecture and canonical module order. |
+| 2 | `ora-core-runtime` | Runnable runtime and tests. |
+| 3 | [ora-core-rag](https://github.com/TwinsProductionAI/ora-core-rag) | Retrieval layer and RAG Governor. |
+| 4 | [ora-core-specs](https://github.com/TwinsProductionAI/ora-core-specs) | Technical specifications. |
+
+## Deliberately Excluded
+
+This public repo does not include:
+
+- client-specific PME playbooks
+- ChatGPT Projects deployment packs
+- private project instructions for client delivery
+- commercial onboarding material
+- brand-sensitive service collateral
+
+## Current Status
+
+This is still a bootstrap runtime. It is useful, testable and publishable, but not yet a fully industrialized product runtime.
+
+## Next Steps
 
 - add richer HGOV policies
 - replace the canonical base64 snapshot with tighter semantic compression
 - add persistent cache and memory policies
 - port from bootstrap form to a versioned runtime package
+
+## License
+
+Code and technical runtime material in this repository are released under Apache 2.0. See `LICENSE` and `NOTICE`.
+
+Trademark, branding and visual identity rights are not granted. See `TRADEMARKS.md`.
