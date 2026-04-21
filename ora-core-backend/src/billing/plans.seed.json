@@ -1,0 +1,41 @@
+[
+  {
+    "id": "free",
+    "publicName": "Free",
+    "description": "Decouverte avec modules de base et sortie direct prompt.",
+    "includedModuleTiers": ["free"],
+    "allowedOutputs": ["direct"],
+    "visibleCapabilityIds": ["reliability", "ambiguity-reduction", "project-export"],
+    "maxTokenEstimate": 2500,
+    "upgradeHint": "Passe en Creator pour debloquer les modules standard et l'export markdown."
+  },
+  {
+    "id": "creator",
+    "publicName": "Creator",
+    "description": "Creation et structure standard pour projets individuels.",
+    "includedModuleTiers": ["free", "standard"],
+    "allowedOutputs": ["direct", "md", "master"],
+    "visibleCapabilityIds": ["reliability", "ambiguity-reduction", "guided-creativity", "professional-structure", "strong-governance", "project-export", "consultant-mode", "sme-mode"],
+    "maxTokenEstimate": 9000,
+    "upgradeHint": "Passe en Pro pour debloquer ARCH+, VG+ et les workflows avances."
+  },
+  {
+    "id": "pro",
+    "publicName": "Pro",
+    "description": "Modules avances, pipeline visuel et architecture persona.",
+    "includedModuleTiers": ["free", "standard", "pro"],
+    "allowedOutputs": ["direct", "md", "master"],
+    "visibleCapabilityIds": "all",
+    "maxTokenEstimate": 18000,
+    "upgradeHint": "Passe en Enterprise pour les modules dedies, SLA et droits etendus."
+  },
+  {
+    "id": "enterprise",
+    "publicName": "Enterprise",
+    "description": "Acces complet, modules dedies et extensions futures.",
+    "includedModuleTiers": ["free", "standard", "pro", "enterprise"],
+    "allowedOutputs": ["direct", "md", "master"],
+    "visibleCapabilityIds": "all",
+    "maxTokenEstimate": 50000
+  }
+]
