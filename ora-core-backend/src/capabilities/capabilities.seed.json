@@ -1,0 +1,83 @@
+[
+  {
+    "id": "reliability",
+    "publicName": "Fiabilite renforcee",
+    "description": "Ajoute verification logique, prudence factuelle et sobriete.",
+    "visibleToPlans": ["free", "creator", "pro", "enterprise"],
+    "activatesModules": ["rime", "ecotwin"],
+    "tags": ["truth", "clarity", "low-risk"],
+    "status": "active"
+  },
+  {
+    "id": "ambiguity-reduction",
+    "publicName": "Reduction des ambiguites",
+    "description": "Clarifie la demande et stabilise les contraintes.",
+    "visibleToPlans": ["free", "creator", "pro", "enterprise"],
+    "activatesModules": ["rime", "gpl"],
+    "tags": ["clarity", "protocol"],
+    "status": "active"
+  },
+  {
+    "id": "guided-creativity",
+    "publicName": "Creativite guidee",
+    "description": "Produit des idees fortes sans sortir du cadre utilisateur.",
+    "visibleToPlans": ["creator", "pro", "enterprise"],
+    "activatesModules": ["crea120", "rime"],
+    "tags": ["creative", "ideation"],
+    "status": "active"
+  },
+  {
+    "id": "professional-structure",
+    "publicName": "Structure professionnelle",
+    "description": "Transforme une intention en livrable propre, stable et reutilisable.",
+    "visibleToPlans": ["creator", "pro", "enterprise"],
+    "activatesModules": ["gpl", "arch-plus"],
+    "tags": ["project", "structure", "profile"],
+    "status": "active"
+  },
+  {
+    "id": "strong-governance",
+    "publicName": "Gouvernance forte",
+    "description": "Ajoute veto coherence, marquage d'incertitude et garde-fous.",
+    "visibleToPlans": ["creator", "pro", "enterprise"],
+    "activatesModules": ["primordia", "rime"],
+    "tags": ["safety", "governance"],
+    "status": "active"
+  },
+  {
+    "id": "project-export",
+    "publicName": "Export projet",
+    "description": "Prepare un contenu markdown ou preferences a telecharger cote frontend.",
+    "visibleToPlans": ["free", "creator", "pro", "enterprise"],
+    "activatesModules": ["ora-compiler-core", "gpl"],
+    "tags": ["export", "markdown"],
+    "status": "active"
+  },
+  {
+    "id": "consultant-mode",
+    "publicName": "Mode consultant",
+    "description": "Ajoute cadrage decisionnel, risques, arbitrage et recommandation.",
+    "visibleToPlans": ["creator", "pro", "enterprise"],
+    "activatesModules": ["aura-mxb", "primordia", "rime"],
+    "tags": ["strategy", "risk", "decision"],
+    "status": "active"
+  },
+  {
+    "id": "sme-mode",
+    "publicName": "Mode PME",
+    "description": "Oriente le livrable vers valeur, confiance, confort et conversion.",
+    "visibleToPlans": ["creator", "pro", "enterprise"],
+    "activatesModules": ["soncas", "aura-mxb", "gpl"],
+    "tags": ["business", "sales", "sme"],
+    "status": "active"
+  },
+  {
+    "id": "visual-pipeline",
+    "publicName": "Pipeline visuel",
+    "description": "Cadre prompts image, storyboard, manga et video proprement.",
+    "visibleToPlans": ["pro", "enterprise"],
+    "activatesModules": ["vg-plus", "crea120", "rime"],
+    "tags": ["visual", "prompt", "storyboard"],
+    "status": "active"
+  }
+]
