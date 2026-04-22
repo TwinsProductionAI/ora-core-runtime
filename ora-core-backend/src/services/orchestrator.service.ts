@@ -10,6 +10,7 @@ import type { AnalyzeNeedRequest, SelectionResolveRequest } from "../schemas/req
 import { getCapabilities, listCapabilities } from "./capability.service.js";
 import { getModuleById, getModulesByIds, resolveModuleDependencies } from "../modules/registry.js";
 import { canUseModule, getPlan } from "./plan.service.js";
+import { resolveEssenceBundle } from "./essence.service.js";
 
 const keywordCapabilityMap: Array<{ keywords: string[]; capabilityId: string }> = [
   { keywords: ["fiable", "fiabilite", "verifie", "verifier", "truth", "risque"], capabilityId: "reliability" },
@@ -66,7 +67,7 @@ export function analyzeNeed(input: AnalyzeNeedRequest): {
 
   return {
     needAnalysis: {
-      summary: "Analyse heuristique V1 basee sur mots-cles. A remplacer plus tard par LLM serveur si besoin.",
+      summary: "Analyse heuristique V1 basee sur mots-cles. A remplacer plus tard par service LLM serveur si besoin.",
       detectedKeywords: [...detectedKeywords],
       intentClass,
       riskLevel,
@@ -79,6 +80,7 @@ export function analyzeNeed(input: AnalyzeNeedRequest): {
 export function resolveSelection(input: SelectionResolveRequest): SelectionResult {
   const plan = getPlan(input.planId);
   const analysis = analyzeNeed({ userRequest: input.userRequest, clientContext: input.clientContext });
+  const targetOutput = input.clientContext?.preferredOutput ?? analysis.needAnalysis.outputHint;
   const selectedCapabilityIds =
     input.selectedCapabilityIds.length > 0
       ? input.selectedCapabilityIds
@@ -86,17 +88,18 @@ export function resolveSelection(input: SelectionResolveRequest): SelectionResul
 
   const visibleCapabilityIds = new Set(listCapabilities(input.planId).map((capability) => capability.id));
   const selectedCapabilities = getCapabilities(selectedCapabilityIds).filter((capability) =>
-    visibleCapabilityIds.has(capability.id)
+    visibleCapabilityIds.has(capability.id) && capability.compatibleOutputs.includes(targetOutput)
   );
 
-  const selectedModuleIds = new Set<string>(input.selectedModuleIds);
+  const baseModuleIds = new Set<string>(input.selectedModuleIds);
   for (const capability of selectedCapabilities) {
-    for (const moduleId of capability.activatesModules) {
-      selectedModuleIds.add(moduleId);
+    for (const moduleId of capability.mappedModules) {
+      baseModuleIds.add(moduleId);
     }
   }
 
-  const dependencyModules = resolveModuleDependencies([...selectedModuleIds]);
+  const dependencyModules = resolveModuleDependencies([...baseModuleIds]);
+  const selectedModuleIds = new Set<string>(baseModuleIds);
   for (const dependency of dependencyModules) {
     selectedModuleIds.add(dependency.id);
   }
@@ -113,6 +116,11 @@ export function resolveSelection(input: SelectionResolveRequest): SelectionResul
       currentPlan: input.planId,
       upgradeHint: plan.upgradeHint ?? "Upgrade required for this module."
     }));
+  const autoAddedDependencies = dependencyModules.filter((module) => !baseModuleIds.has(module.id));
+  const essenceBundle = resolveEssenceBundle(
+    authorizedModules.map((module) => module.id),
+    targetOutput
+  );
 
   return {
     planId: input.planId,
@@ -123,6 +131,9 @@ export function resolveSelection(input: SelectionResolveRequest): SelectionResul
     authorizedModules,
     blockedByPlan,
     requiredDependencies: dependencyModules,
+    autoAddedDependencies,
+    resolvedEssences: essenceBundle.essences,
+    essenceConflicts: essenceBundle.conflicts,
     conflicts
   };
 }

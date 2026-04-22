@@ -21,7 +21,7 @@ export function getActivatedModuleIds(capabilityIds: string[]): string[] {
   const modules = new Set<string>();
 
   for (const capability of getCapabilities(capabilityIds)) {
-    for (const moduleId of capability.activatesModules) {
+    for (const moduleId of capability.mappedModules) {
       modules.add(moduleId);
     }
   }

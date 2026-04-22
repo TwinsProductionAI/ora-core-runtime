@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { PlanTierSchema } from "../schemas/common.schema.js";
+import { OutputTypeSchema, PlanTierSchema } from "../schemas/common.schema.js";
 import { listCapabilities, verifyCapabilityGraph } from "../services/capability.service.js";
 import { asyncHandler } from "../utils/async-handler.js";
 import { ok } from "../utils/http.js";
@@ -10,9 +10,14 @@ capabilitiesRouter.get(
   "/capabilities",
   asyncHandler((req, res) => {
     const planParse = PlanTierSchema.optional().safeParse(req.query.planId);
+    const outputParse = OutputTypeSchema.optional().safeParse(req.query.outputType);
     const planId = planParse.success ? planParse.data : undefined;
+    const outputType = outputParse.success ? outputParse.data : undefined;
+    const capabilities = listCapabilities(planId).filter((capability) =>
+      outputType ? capability.compatibleOutputs.includes(outputType) : true
+    );
 
-    return ok(res, listCapabilities(planId));
+    return ok(res, capabilities);
   })
 );
 

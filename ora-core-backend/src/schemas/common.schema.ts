@@ -1,5 +1,6 @@
 import { z } from "zod";
 import {
+  essenceTypeValues,
   moduleStatusValues,
   moduleTierValues,
   outputTypeValues,
@@ -12,6 +13,7 @@ export const PlanTierSchema = z.enum(planTierValues);
 export const OutputTypeSchema = z.enum(outputTypeValues);
 export const ModuleStatusSchema = z.enum(moduleStatusValues);
 export const ValidationStateSchema = z.enum(validationStateValues);
+export const EssenceTypeSchema = z.enum(essenceTypeValues);
 
 export const ClientContextSchema = z
   .object({

@@ -3,6 +3,7 @@ import type { CompileRequest, SelectionResolveRequest } from "../schemas/request
 import { canUseOutput } from "./plan.service.js";
 import { resolveSelection } from "./orchestrator.service.js";
 import { estimateTokenCost } from "./token-estimator.service.js";
+import { minifyEssenceContent } from "./essence.service.js";
 import { badRequest } from "../utils/errors.js";
 
 export function compileDirectPrompt(input: CompileRequest): CompileResult {
@@ -27,7 +28,7 @@ function compileOutput(input: CompileRequest, outputType: OutputType): CompileRe
     planId: input.planId,
     selectedCapabilityIds: input.selectedCapabilityIds,
     selectedModuleIds: input.selectedModuleIds,
-    clientContext: input.clientContext
+    clientContext: { ...input.clientContext, preferredOutput: outputType }
   };
   const selection = resolveSelection(selectionInput);
   const selectedModuleIds = selection.authorizedModules.map((module) => module.id);
@@ -49,19 +50,21 @@ function compileOutput(input: CompileRequest, outputType: OutputType): CompileRe
     outputType,
     content,
     tokenEstimate,
-    selection
+    selection,
+    essences: selection.resolvedEssences
   };
 }
 
 function renderDirectPrompt(input: CompileRequest, tokEst: number, selection: ReturnType<typeof resolveSelection>): string {
-  const moduleLines = selection.authorizedModules
-    .map((module) => `- ${module.publicName} [${module.codeTemplate}]`)
+  const capabilityLines = selection.selectedCapabilities.map((capability) => `- ${capability.label}`).join("\n");
+  const moduleMetadataLines = selection.authorizedModules.map((module) => `- ${module.publicName} (${module.id})`).join("\n");
+  const essenceLines = selection.resolvedEssences
+    .map((essence) => `- ${essence.essenceId}: ${essence.injectableContent}`)
     .join("\n");
-  const capabilityLines = selection.selectedCapabilities.map((capability) => `- ${capability.publicName}`).join("\n");
 
   return [
     "# ORA Direct Prompt",
-    `TOK_EST: ${tokEst}`,
+    `TOK_EST≈${tokEst}`,
     `PLAN: ${selection.planId}`,
     "SOURCE: ora-core-backend/v1 local mock",
     "",
@@ -71,8 +74,11 @@ function renderDirectPrompt(input: CompileRequest, tokEst: number, selection: Re
     "## Capacites activees",
     capabilityLines || "- Fiabilite de base",
     "",
-    "## Modules autorises",
-    moduleLines || "- Aucun module autorise par le plan actuel",
+    "## Modules autorises (metadata only)",
+    moduleMetadataLines || "- Aucun module autorise par le plan actuel",
+    "",
+    "## Essences operationnelles injectees",
+    essenceLines || "- Aucune essence resolue",
     "",
     "## Grenaprompt lisible",
     `INTENT: ${selection.needAnalysis.intentClass}`,
@@ -82,14 +88,17 @@ function renderDirectPrompt(input: CompileRequest, tokEst: number, selection: Re
     "## GPV2_MIN",
     `GPV2|v=1|out=direct|plan=${selection.planId}|tok_est=${tokEst}|caps=[${selection.selectedCapabilities
       .map((capability) => capability.id)
-      .join(",")}]|mods=[${selection.authorizedModules.map((module) => module.id).join(",")}]`
+      .join(",")}]|ess=[${selection.resolvedEssences.map((essence) => essence.essenceId).join(",")}]|mods=[${selection.authorizedModules
+      .map((module) => module.id)
+      .join(",")}]`
   ].join("\n");
 }
 
 function renderProjectMd(input: CompileRequest, tokEst: number, selection: ReturnType<typeof resolveSelection>): string {
   const title = input.title ?? "ORA Project Configuration";
-  const modules = selection.authorizedModules
-    .map((module) => `- **${module.publicName}**: ${module.description}`)
+  const modules = selection.authorizedModules.map((module) => `- **${module.publicName}** (${module.id})`).join("\n");
+  const essences = selection.resolvedEssences
+    .map((essence) => `- **${essence.essenceId}** [${essence.essenceType}]: \`${essence.injectableContent}\``)
     .join("\n");
   const blocked = selection.blockedByPlan
     .map((module) => `- ${module.publicName}: requires ${module.requiredTier}`)
@@ -98,7 +107,7 @@ function renderProjectMd(input: CompileRequest, tokEst: number, selection: Retur
   return [
     `# ${title}`,
     "",
-    `TOK_EST: ${tokEst}`,
+    `TOK_EST≈${tokEst}`,
     `PLAN: ${selection.planId}`,
     "",
     "## User request",
@@ -110,17 +119,21 @@ function renderProjectMd(input: CompileRequest, tokEst: number, selection: Retur
     `- Output hint: ${selection.needAnalysis.outputHint}`,
     "",
     "## Active capabilities",
-    selection.selectedCapabilities.map((capability) => `- ${capability.publicName}`).join("\n") || "- None",
+    selection.selectedCapabilities.map((capability) => `- ${capability.label}`).join("\n") || "- None",
     "",
     "## Authorized modules",
     modules || "- None",
+    "",
+    "## Operational essences",
+    essences || "- None",
     "",
     "## Blocked by plan",
     blocked || "- None",
     "",
     "## Operating rules",
+    "- Compile module essences, not raw module blocks.",
     "- Keep frontend as UI layer only.",
-    "- Centralize business logic and LLM calls in backend.",
+    "- Centralize business logic and optional LLM calls in backend.",
     "- Mark uncertain facts instead of inventing.",
     "- Keep generated artifacts downloadable by the frontend."
   ].join("\n");
@@ -128,17 +141,19 @@ function renderProjectMd(input: CompileRequest, tokEst: number, selection: Retur
 
 function renderMaster(input: CompileRequest, tokEst: number, selection: ReturnType<typeof resolveSelection>): string {
   const caps = selection.selectedCapabilities.map((capability) => capability.id).join(",");
-  const mods = selection.authorizedModules.map((module) => module.id).join(",");
+  const ess = selection.resolvedEssences.map((essence) => essence.essenceId).join(",");
+  const core = minifyEssenceContent(selection.resolvedEssences);
 
   return [
     "ORA_MASTER_PREF_V1",
-    `TOK_EST=${tokEst}`,
+    `TOK_EST≈${tokEst}`,
     `PLAN=${selection.planId}`,
     `INTENT=${selection.needAnalysis.intentClass}`,
     `RISK=${selection.needAnalysis.riskLevel}`,
     `CAPS=[${caps}]`,
-    `MODULES=[${mods}]`,
-    "RULES=[truth_over_comfort,no_fake_sources,uncertainty_marking,frontend_ui_only]",
+    `ESS=[${ess}]`,
+    `CORE=[${core}]`,
+    "RULES=[truth_over_comfort,no_fake_sources,uncertainty_marking,frontend_ui_only,compile_essences_not_raw_modules]",
     `REQUEST=${input.userRequest.replace(/\s+/g, " ").trim()}`
   ].join("|");
 }

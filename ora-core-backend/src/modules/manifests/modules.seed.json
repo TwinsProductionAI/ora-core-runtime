@@ -1,182 +1,305 @@
 [
-  {
-    "id": "rime",
-    "publicName": "Reduction des ambiguites",
-    "internalName": "RIME",
-    "description": "Structure le raisonnement et detecte les hypotheses faibles.",
-    "fullDescription": "Moteur de raisonnement v1 utilise pour clarifier les intentions, separer faits et hypotheses, et stabiliser les sorties compilees.",
-    "repoUrl": "https://github.com/TwinsProductionAI",
-    "category": "reasoning",
-    "tier": "free",
-    "compatibleOutputs": ["direct", "md", "master"],
-    "dependencies": [],
-    "conflicts": [],
-    "tokenCostWeight": 1.1,
-    "codeTemplate": "RIME_TRACE_MIN",
-    "tags": ["clarity", "reasoning", "audit"],
-    "status": "stable",
-    "validationState": "mocked"
-  },
-  {
-    "id": "primordia",
-    "publicName": "Gouvernance forte",
-    "internalName": "PRIMORDIA",
-    "description": "Garde-fou verite, coherence et securite.",
-    "fullDescription": "Module de gouvernance qui impose le marquage des incertitudes, bloque les contradictions et priorise verite sur confort.",
-    "repoUrl": "https://github.com/TwinsProductionAI",
-    "category": "governance",
-    "tier": "standard",
-    "compatibleOutputs": ["direct", "md", "master"],
-    "dependencies": ["rime"],
-    "conflicts": [],
-    "tokenCostWeight": 1.4,
-    "codeTemplate": "PRIMORDIA_VETO_MIN",
-    "tags": ["safety", "truth", "governance"],
-    "status": "stable",
-    "validationState": "mocked"
-  },
-  {
-    "id": "ecotwin",
-    "publicName": "Sobriete cognitive",
-    "internalName": "ECOTWIN",
-    "description": "Reduit la surcharge et garde une sortie suffisante.",
-    "fullDescription": "Couche d'efficience qui limite les tokens inutiles, privilegie les sorties exploitables et garde une estimation qualitative.",
-    "repoUrl": "https://github.com/TwinsProductionAI",
-    "category": "efficiency",
-    "tier": "free",
-    "compatibleOutputs": ["direct", "md", "master"],
-    "dependencies": [],
-    "conflicts": [],
-    "tokenCostWeight": 0.7,
-    "codeTemplate": "ECOTWIN_LIGHT",
-    "tags": ["cost", "tokens", "sobriety"],
-    "status": "stable",
-    "validationState": "mocked"
-  },
-  {
-    "id": "crea120",
-    "publicName": "Creativite guidee",
-    "internalName": "CREA120",
-    "description": "Ideation creative sous contraintes reelles.",
-    "fullDescription": "Moteur de creativite controlee pour produire des angles, concepts, narrations et prompts sans presenter une hypothese comme un fait.",
-    "repoUrl": "https://github.com/TwinsProductionAI",
-    "category": "creation",
-    "tier": "standard",
-    "compatibleOutputs": ["direct", "md", "master"],
-    "dependencies": ["rime"],
-    "conflicts": [],
-    "tokenCostWeight": 1.5,
-    "codeTemplate": "CREA120_CONSTRAINED",
-    "tags": ["creative", "ideation", "story"],
-    "status": "stable",
-    "validationState": "mocked"
-  },
-  {
-    "id": "aura-mxb",
-    "publicName": "Mode consultant",
-    "internalName": "AURA_MXB",
-    "description": "Arbitre impact, risque et marge de securite.",
-    "fullDescription": "Couche decisionnelle qui compare audace, robustesse, cout de test et solidite factuelle pour recommander GO, TEST, WAIT ou NO.",
-    "repoUrl": "https://github.com/TwinsProductionAI",
-    "category": "strategy",
-    "tier": "standard",
-    "compatibleOutputs": ["direct", "md", "master"],
-    "dependencies": ["rime"],
-    "conflicts": [],
-    "tokenCostWeight": 1.3,
-    "codeTemplate": "AURA_MXB_SCORECARD",
-    "tags": ["strategy", "decision", "risk"],
-    "status": "stable",
-    "validationState": "mocked"
-  },
-  {
-    "id": "gpl",
-    "publicName": "Structure professionnelle",
-    "internalName": "GPL",
-    "description": "Transforme une demande en contrat d'execution routable.",
-    "fullDescription": "Protocole GrenapromptLinked pour normaliser intention, contraintes, routage et format de sortie.",
-    "repoUrl": "https://github.com/TwinsProductionAI",
-    "category": "protocol",
-    "tier": "standard",
-    "compatibleOutputs": ["direct", "md", "master"],
-    "dependencies": ["rime"],
-    "conflicts": [],
-    "tokenCostWeight": 1.2,
-    "codeTemplate": "GPL_EXEC_IR_V1",
-    "tags": ["protocol", "structure", "contract"],
-    "status": "stable",
-    "validationState": "mocked"
-  },
-  {
-    "id": "arch-plus",
-    "publicName": "Architecture persona",
-    "internalName": "ARCH_PLUS",
-    "description": "Structure profils, roles, limites et arcs d'usage.",
-    "fullDescription": "Couche d'architecture de persona qui organise savoir, savoir-faire, posture, ton et limites de risque.",
-    "repoUrl": "https://github.com/TwinsProductionAI",
-    "category": "architecture",
-    "tier": "pro",
-    "compatibleOutputs": ["direct", "md", "master"],
-    "dependencies": ["rime", "gpl"],
-    "conflicts": [],
-    "tokenCostWeight": 1.6,
-    "codeTemplate": "ARCHP_PROFILE_V1",
-    "tags": ["persona", "architecture", "profile"],
-    "status": "beta",
-    "validationState": "mocked"
-  },
-  {
-    "id": "vg-plus",
-    "publicName": "Pipeline visuel",
-    "internalName": "VG_PLUS",
-    "description": "Cadre les prompts image, manga, storyboard et video.",
-    "fullDescription": "Pipeline visuel structurel en couches, avec priorite a la lisibilite, au canon et au rendu digital clean.",
-    "repoUrl": "https://github.com/TwinsProductionAI",
-    "category": "visual",
-    "tier": "pro",
-    "compatibleOutputs": ["direct", "md"],
-    "dependencies": ["rime", "crea120"],
-    "conflicts": [],
-    "tokenCostWeight": 1.8,
-    "codeTemplate": "VG_PLUS_LAYERED_PROMPT",
-    "tags": ["visual", "manga", "storyboard", "video"],
-    "status": "beta",
-    "validationState": "mocked"
-  },
-  {
-    "id": "soncas",
-    "publicName": "Mode PME",
-    "internalName": "SONCAS",
-    "description": "Pondere la sortie selon les leviers comportementaux utiles.",
-    "fullDescription": "Module commercial pour securite, orgueil, nouveaute, confort, argent et sympathie, avec traces de priorisation.",
-    "repoUrl": "https://github.com/TwinsProductionAI",
-    "category": "business",
-    "tier": "standard",
-    "compatibleOutputs": ["direct", "md", "master"],
-    "dependencies": ["rime"],
-    "conflicts": [],
-    "tokenCostWeight": 1.0,
-    "codeTemplate": "SONCAS_WEIGHTED_V1",
-    "tags": ["business", "sales", "sme"],
-    "status": "stable",
-    "validationState": "mocked"
-  },
-  {
-    "id": "ora-compiler-core",
-    "publicName": "Export projet",
-    "internalName": "ORA_COMPILER_CORE",
-    "description": "Genere les artefacts direct, markdown projet et preferences.",
-    "fullDescription": "Module coeur de compilation qui assemble demande, capacites, modules autorises, estimation token et sortie cible.",
-    "repoUrl": "https://github.com/TwinsProductionAI",
-    "category": "compiler",
-    "tier": "free",
-    "compatibleOutputs": ["direct", "md", "master"],
-    "dependencies": ["rime", "ecotwin"],
-    "conflicts": [],
-    "tokenCostWeight": 0.9,
-    "codeTemplate": "ORA_COMPILE_V1",
-    "tags": ["export", "compiler", "markdown"],
-    "status": "stable",
-    "validationState": "mocked"
-  }
+    {
+        "id":  "rime",
+        "publicName":  "Reduction des ambiguites",
+        "internalName":  "RIME",
+        "description":  "Structure le raisonnement et detecte les hypotheses faibles.",
+        "fullDescription":  "Moteur de raisonnement v1 utilise pour clarifier les intentions, separer faits et hypotheses, et stabiliser les sorties compilees.",
+        "repoUrl":  "https://github.com/TwinsProductionAI/ora-core-os",
+        "category":  "reasoning",
+        "tier":  "free",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "dependencies":  [
+
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenCostWeight":  1.1,
+        "codeTemplate":  "RIME_TRACE_MIN",
+        "tags":  [
+                     "clarity",
+                     "reasoning",
+                     "audit"
+                 ],
+        "status":  "stable",
+        "validationState":  "mocked"
+    },
+    {
+        "id":  "primordia",
+        "publicName":  "Gouvernance forte",
+        "internalName":  "PRIMORDIA",
+        "description":  "Garde-fou verite, coherence et securite.",
+        "fullDescription":  "Module de gouvernance qui impose le marquage des incertitudes, bloque les contradictions et priorise verite sur confort.",
+        "repoUrl":  "https://github.com/TwinsProductionAI/ora-core-os",
+        "category":  "governance",
+        "tier":  "standard",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "dependencies":  [
+                             "rime"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenCostWeight":  1.4,
+        "codeTemplate":  "PRIMORDIA_VETO_MIN",
+        "tags":  [
+                     "safety",
+                     "truth",
+                     "governance"
+                 ],
+        "status":  "stable",
+        "validationState":  "mocked"
+    },
+    {
+        "id":  "ecotwin",
+        "publicName":  "Sobriete cognitive",
+        "internalName":  "ECOTWIN",
+        "description":  "Reduit la surcharge et garde une sortie suffisante.",
+        "fullDescription":  "Couche d\u0027efficience qui limite les tokens inutiles, privilegie les sorties exploitables et garde une estimation qualitative.",
+        "repoUrl":  "https://github.com/TwinsProductionAI/ora-core-os",
+        "category":  "efficiency",
+        "tier":  "free",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "dependencies":  [
+
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenCostWeight":  0.7,
+        "codeTemplate":  "ECOTWIN_LIGHT",
+        "tags":  [
+                     "cost",
+                     "tokens",
+                     "sobriety"
+                 ],
+        "status":  "stable",
+        "validationState":  "mocked"
+    },
+    {
+        "id":  "crea120",
+        "publicName":  "Creativite guidee",
+        "internalName":  "CREA120",
+        "description":  "Ideation creative sous contraintes reelles.",
+        "fullDescription":  "Moteur de creativite controlee pour produire des angles, concepts, narrations et prompts sans presenter une hypothese comme un fait.",
+        "repoUrl":  "https://github.com/TwinsProductionAI/ora-core-os",
+        "category":  "creation",
+        "tier":  "standard",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "dependencies":  [
+                             "rime"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenCostWeight":  1.5,
+        "codeTemplate":  "CREA120_CONSTRAINED",
+        "tags":  [
+                     "creative",
+                     "ideation",
+                     "story"
+                 ],
+        "status":  "stable",
+        "validationState":  "mocked"
+    },
+    {
+        "id":  "aura-mxb",
+        "publicName":  "Mode consultant",
+        "internalName":  "AURA_MXB",
+        "description":  "Arbitre impact, risque et marge de securite.",
+        "fullDescription":  "Couche decisionnelle qui compare audace, robustesse, cout de test et solidite factuelle pour recommander GO, TEST, WAIT ou NO.",
+        "repoUrl":  "https://github.com/TwinsProductionAI/ora-core-os",
+        "category":  "strategy",
+        "tier":  "standard",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "dependencies":  [
+                             "rime"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenCostWeight":  1.3,
+        "codeTemplate":  "AURA_MXB_SCORECARD",
+        "tags":  [
+                     "strategy",
+                     "decision",
+                     "risk"
+                 ],
+        "status":  "stable",
+        "validationState":  "mocked"
+    },
+    {
+        "id":  "gpl",
+        "publicName":  "Structure professionnelle",
+        "internalName":  "GPL",
+        "description":  "Transforme une demande en contrat d\u0027execution routable.",
+        "fullDescription":  "Protocole GrenapromptLinked pour normaliser intention, contraintes, routage et format de sortie.",
+        "repoUrl":  "https://github.com/TwinsProductionAI/grenaprompt-linked",
+        "category":  "protocol",
+        "tier":  "standard",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "dependencies":  [
+                             "rime"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenCostWeight":  1.2,
+        "codeTemplate":  "GPL_EXEC_IR_V1",
+        "tags":  [
+                     "protocol",
+                     "structure",
+                     "contract"
+                 ],
+        "status":  "stable",
+        "validationState":  "mocked"
+    },
+    {
+        "id":  "arch-plus",
+        "publicName":  "Architecture persona",
+        "internalName":  "ARCH_PLUS",
+        "description":  "Structure profils, roles, limites et arcs d\u0027usage.",
+        "fullDescription":  "Couche d\u0027architecture de persona qui organise savoir, savoir-faire, posture, ton et limites de risque.",
+        "repoUrl":  "https://github.com/TwinsProductionAI/ora-core-specs",
+        "category":  "architecture",
+        "tier":  "pro",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "dependencies":  [
+                             "rime",
+                             "gpl"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenCostWeight":  1.6,
+        "codeTemplate":  "ARCHP_PROFILE_V1",
+        "tags":  [
+                     "persona",
+                     "architecture",
+                     "profile"
+                 ],
+        "status":  "beta",
+        "validationState":  "mocked"
+    },
+    {
+        "id":  "vg-plus",
+        "publicName":  "Pipeline visuel",
+        "internalName":  "VG_PLUS",
+        "description":  "Cadre les prompts image, manga, storyboard et video.",
+        "fullDescription":  "Pipeline visuel structurel en couches, avec priorite a la lisibilite, au canon et au rendu digital clean.",
+        "repoUrl":  "https://github.com/TwinsProductionAI/ora-core-specs",
+        "category":  "visual",
+        "tier":  "pro",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md"
+                              ],
+        "dependencies":  [
+                             "rime",
+                             "crea120"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenCostWeight":  1.8,
+        "codeTemplate":  "VG_PLUS_LAYERED_PROMPT",
+        "tags":  [
+                     "visual",
+                     "manga",
+                     "storyboard",
+                     "video"
+                 ],
+        "status":  "beta",
+        "validationState":  "mocked"
+    },
+    {
+        "id":  "soncas",
+        "publicName":  "Mode PME",
+        "internalName":  "SONCAS",
+        "description":  "Pondere la sortie selon les leviers comportementaux utiles.",
+        "fullDescription":  "Module commercial pour securite, orgueil, nouveaute, confort, argent et sympathie, avec traces de priorisation.",
+        "repoUrl":  "https://github.com/TwinsProductionAI/ora-core-specs",
+        "category":  "business",
+        "tier":  "standard",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "dependencies":  [
+                             "rime"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenCostWeight":  1.0,
+        "codeTemplate":  "SONCAS_WEIGHTED_V1",
+        "tags":  [
+                     "business",
+                     "sales",
+                     "sme"
+                 ],
+        "status":  "stable",
+        "validationState":  "mocked"
+    },
+    {
+        "id":  "ora-compiler-core",
+        "publicName":  "Export projet",
+        "internalName":  "ORA_COMPILER_CORE",
+        "description":  "Genere les artefacts direct, markdown projet et preferences.",
+        "fullDescription":  "Module coeur de compilation qui assemble demande, capacites, modules autorises, estimation token et sortie cible.",
+        "repoUrl":  "https://github.com/TwinsProductionAI/ora-core-runtime",
+        "category":  "compiler",
+        "tier":  "free",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "dependencies":  [
+                             "rime",
+                             "ecotwin"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenCostWeight":  0.9,
+        "codeTemplate":  "ORA_COMPILE_V1",
+        "tags":  [
+                     "export",
+                     "compiler",
+                     "markdown"
+                 ],
+        "status":  "stable",
+        "validationState":  "mocked"
+    }
 ]

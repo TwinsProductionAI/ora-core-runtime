@@ -7,20 +7,21 @@ export interface LlmGenerateInput {
 }
 
 export interface LlmGenerateResult {
-  provider: "stub" | "gemini";
+  provider: "stub" | "external";
   model?: string;
   text: string;
   isStub: boolean;
 }
 
 export async function generateWithLlm(input: LlmGenerateInput): Promise<LlmGenerateResult> {
-  if (env.LLM_PROVIDER === "gemini" && env.GEMINI_API_KEY) {
+  if (env.LLM_PROVIDER === "external") {
     return {
-      provider: "gemini",
-      model: env.GEMINI_MODEL,
+      provider: "external",
+      model: env.LLM_MODEL,
       text: [
-        "Gemini server-side provider is configured but not executed in V1.",
-        "Wire the SDK call here once product prompts and safety policy are locked.",
+        "EXTERNAL_LLM_STUB_RESPONSE",
+        "No external model call was made in V1.",
+        "Wire a server-side provider here only after product prompts, safety policy and billing are locked.",
         `User prompt preview: ${input.userPrompt.slice(0, 240)}`
       ].join("\n"),
       isStub: true

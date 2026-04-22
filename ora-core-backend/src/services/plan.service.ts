@@ -1,6 +1,13 @@
 import type { Capability, OraModule, OutputType, PlanDefinition, PlanTier } from "../types/index.js";
 import { getPlanById, listPlanRegistry } from "../billing/plan.registry.js";
 
+const planRank: Record<PlanTier, number> = {
+  free: 0,
+  creator: 1,
+  pro: 2,
+  enterprise: 3
+};
+
 export function listPlans(): PlanDefinition[] {
   return listPlanRegistry();
 }
@@ -21,10 +28,8 @@ export function canUseOutput(planId: PlanTier, outputType: OutputType): boolean 
 
 export function canSeeCapability(planId: PlanTier, capability: Capability): boolean {
   const plan = getPlan(planId);
+  const isVisibleInPlan = plan.visibleCapabilityIds === "all" || plan.visibleCapabilityIds.includes(capability.id);
+  const planMeetsRequirement = planRank[planId] >= planRank[capability.requiredPlan];
 
-  if (plan.visibleCapabilityIds === "all") {
-    return capability.visibleToPlans.includes(planId);
-  }
-
-  return plan.visibleCapabilityIds.includes(capability.id) && capability.visibleToPlans.includes(planId);
+  return isVisibleInPlan && planMeetsRequirement;
 }

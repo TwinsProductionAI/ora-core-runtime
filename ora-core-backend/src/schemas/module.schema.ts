@@ -14,7 +14,7 @@ export const OraModuleSchema = z.object({
   dependencies: z.array(z.string().min(1)),
   conflicts: z.array(z.string().min(1)),
   tokenCostWeight: z.number().min(0),
-  codeTemplate: z.string().min(1),
+  codeTemplate: z.string().min(1).optional(),
   tags: z.array(z.string().min(1)),
   status: ModuleStatusSchema,
   validationState: ValidationStateSchema

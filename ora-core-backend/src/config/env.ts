@@ -7,9 +7,9 @@ const EnvSchema = z.object({
   CORS_ORIGIN: z.string().default("*"),
   GITHUB_ORG_URL: z.string().url().default("https://github.com/TwinsProductionAI"),
   GITHUB_TOKEN: z.string().optional(),
-  LLM_PROVIDER: z.enum(["stub", "gemini"]).default("stub"),
-  GEMINI_API_KEY: z.string().optional(),
-  GEMINI_MODEL: z.string().default("gemini-1.5-flash")
+  LLM_PROVIDER: z.enum(["stub", "external"]).default("stub"),
+  LLM_API_KEY: z.string().optional(),
+  LLM_MODEL: z.string().optional()
 });
 
 export const env = EnvSchema.parse(process.env);

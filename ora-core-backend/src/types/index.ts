@@ -13,6 +13,19 @@ export type ModuleStatus = (typeof moduleStatusValues)[number];
 export const validationStateValues = ["mocked", "draft", "validated", "blocked"] as const;
 export type ValidationState = (typeof validationStateValues)[number];
 
+export const essenceTypeValues = [
+  "governance",
+  "clarity",
+  "compression",
+  "formatting",
+  "reasoning_frame",
+  "style_control",
+  "safety_frame",
+  "project_context",
+  "persistent_preferences"
+] as const;
+export type EssenceType = (typeof essenceTypeValues)[number];
+
 export interface OraModule {
   id: string;
   publicName: string;
@@ -26,18 +39,32 @@ export interface OraModule {
   dependencies: string[];
   conflicts: string[];
   tokenCostWeight: number;
-  codeTemplate: string;
+  codeTemplate?: string;
   tags: string[];
   status: ModuleStatus;
   validationState: ValidationState;
 }
 
+export interface ModuleEssence {
+  essenceId: string;
+  moduleId: string;
+  essenceType: EssenceType;
+  targetOutputs: OutputType[];
+  priority: number;
+  compressionLevel: number;
+  injectableContent: string;
+  dependencies: string[];
+  conflicts: string[];
+  tokenWeight: number;
+}
+
 export interface Capability {
   id: string;
-  publicName: string;
+  label: string;
   description: string;
-  visibleToPlans: PlanTier[];
-  activatesModules: string[];
+  mappedModules: string[];
+  requiredPlan: PlanTier;
+  compatibleOutputs: OutputType[];
   tags: string[];
   status: "active" | "hidden" | "deprecated";
 }
@@ -75,6 +102,17 @@ export interface SelectionConflict {
   reason: string;
 }
 
+export interface EssenceConflict {
+  essenceId: string;
+  conflictsWith: string;
+  reason: string;
+}
+
+export interface EssenceBundle {
+  essences: ModuleEssence[];
+  conflicts: EssenceConflict[];
+}
+
 export interface BlockedModule {
   moduleId: string;
   publicName: string;
@@ -92,6 +130,9 @@ export interface SelectionResult {
   authorizedModules: OraModule[];
   blockedByPlan: BlockedModule[];
   requiredDependencies: OraModule[];
+  autoAddedDependencies: OraModule[];
+  resolvedEssences: ModuleEssence[];
+  essenceConflicts: EssenceConflict[];
   conflicts: SelectionConflict[];
 }
 
@@ -111,6 +152,7 @@ export interface CompileResult {
   content: string;
   tokenEstimate: TokenEstimate;
   selection: SelectionResult;
+  essences: ModuleEssence[];
 }
 
 export interface RepoInfo {
