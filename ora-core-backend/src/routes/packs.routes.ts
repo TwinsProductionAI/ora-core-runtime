@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { getCoreFoundationPack, getMandatoryBaseModules, getModulePack, listModulePacks } from "../services/pack.service.js";
 import { asyncHandler } from "../utils/async-handler.js";
+import { badRequest } from "../utils/errors.js";
 import { ok } from "../utils/http.js";
 
 export const packsRouter = Router();
@@ -20,5 +21,12 @@ packsRouter.get(
 
 packsRouter.get(
   "/packs/:id",
-  asyncHandler((req, res) => ok(res, getModulePack(req.params.id)))
+  asyncHandler((req, res) => {
+    const packId = req.params.id;
+    if (!packId) {
+      throw badRequest("Missing pack id.");
+    }
+
+    return ok(res, getModulePack(packId));
+  })
 );

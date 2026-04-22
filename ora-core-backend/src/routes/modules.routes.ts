@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { getModuleById, listModuleRegistry } from "../modules/registry.js";
 import { asyncHandler } from "../utils/async-handler.js";
+import { badRequest } from "../utils/errors.js";
 import { ok } from "../utils/http.js";
 
 export const modulesRouter = Router();
@@ -19,5 +20,12 @@ modulesRouter.get(
 
 modulesRouter.get(
   "/modules/:id",
-  asyncHandler((req, res) => ok(res, getModuleById(req.params.id)))
+  asyncHandler((req, res) => {
+    const moduleId = req.params.id;
+    if (!moduleId) {
+      throw badRequest("Missing module id.");
+    }
+
+    return ok(res, getModuleById(moduleId));
+  })
 );

@@ -3,6 +3,7 @@ import { OutputTypeSchema } from "../schemas/common.schema.js";
 import { getEssenceById } from "../essences/registry.js";
 import { listEssences, resolveEssenceBundle } from "../services/essence.service.js";
 import { asyncHandler } from "../utils/async-handler.js";
+import { badRequest } from "../utils/errors.js";
 import { ok } from "../utils/http.js";
 
 export const essencesRouter = Router();
@@ -30,5 +31,12 @@ essencesRouter.get(
 
 essencesRouter.get(
   "/essences/:id",
-  asyncHandler((req, res) => ok(res, getEssenceById(req.params.id)))
+  asyncHandler((req, res) => {
+    const essenceId = req.params.id;
+    if (!essenceId) {
+      throw badRequest("Missing essence id.");
+    }
+
+    return ok(res, getEssenceById(essenceId));
+  })
 );
