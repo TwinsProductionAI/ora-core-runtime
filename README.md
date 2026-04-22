@@ -6,7 +6,7 @@ This repository contains the public runtime bundle for the latest technical ORA 
 
 ## Repository Role
 
-Read this after [ora-core-os](https://github.com/TwinsProductionAI/Coeur_ORA_GrenaPrompt_repo) when you want executable material instead of architecture documents.
+Read this after [ora-core-os](https://github.com/TwinsProductionAI/ora-core-os) when you want executable material instead of architecture documents.
 
 | Public order | Repository role |
 | ---: | --- |
@@ -70,7 +70,7 @@ powershell -ExecutionPolicy Bypass -File .\tests\h_nerons_runtime_test.ps1
 
 | Order | Repository | Role |
 | ---: | --- | --- |
-| 1 | [ora-core-os](https://github.com/TwinsProductionAI/Coeur_ORA_GrenaPrompt_repo) | Architecture and canonical module order. |
+| 1 | [ora-core-os](https://github.com/TwinsProductionAI/ora-core-os) | Architecture and canonical module order. |
 | 2 | `ora-core-runtime` | Runnable runtime and tests. |
 | 3 | [ora-core-rag](https://github.com/TwinsProductionAI/ora-core-rag) | Retrieval layer and RAG Governor. |
 | 4 | [ora-core-specs](https://github.com/TwinsProductionAI/ora-core-specs) | Technical specifications. |
