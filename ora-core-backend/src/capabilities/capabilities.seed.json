@@ -88,5 +88,15 @@
     "compatibleOutputs": ["direct", "md"],
     "tags": ["visual", "prompt", "storyboard"],
     "status": "active"
+  },
+  {
+    "id": "governance-audit",
+    "label": "Audit HALO TraceCore",
+    "description": "Ajoute une trace hashable des essences activees, verdicts de gouvernance et metriques estimees.",
+    "mappedModules": ["halo-tracecore"],
+    "requiredPlan": "creator",
+    "compatibleOutputs": ["direct", "md", "master"],
+    "tags": ["halo", "audit", "governance", "traceability", "essence"],
+    "status": "active"
   }
 ]

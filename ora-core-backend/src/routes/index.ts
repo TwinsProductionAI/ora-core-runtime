@@ -3,6 +3,7 @@ import { capabilitiesRouter } from "./capabilities.routes.js";
 import { compileRouter } from "./compile.routes.js";
 import { essencesRouter } from "./essences.routes.js";
 import { estimateRouter } from "./estimate.routes.js";
+import { haloRouter } from "./halo.routes.js";
 import { healthRouter } from "./health.routes.js";
 import { modulesRouter } from "./modules.routes.js";
 import { needsRouter } from "./needs.routes.js";
@@ -13,6 +14,7 @@ import { selectionRouter } from "./selection.routes.js";
 export const router = Router();
 
 router.use(healthRouter);
+router.use(haloRouter);
 router.use(reposRouter);
 router.use(modulesRouter);
 router.use(essencesRouter);

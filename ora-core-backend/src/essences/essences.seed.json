@@ -118,5 +118,17 @@
     "dependencies": ["rime-core-clarity", "ecotwin-token-sobriety"],
     "conflicts": [],
     "tokenWeight": 0.75
+  },
+  {
+    "essenceId": "halo-tracecore-ledger",
+    "moduleId": "halo-tracecore",
+    "essenceType": "traceability",
+    "targetOutputs": ["direct", "md", "master"],
+    "priority": 88,
+    "compressionLevel": 3,
+    "injectableContent": "HALO_TRACECORE:trace_essences_active;trace_decision_owner;hash_refs_only;metrics_estimated_unless_measured;emit_audit_event",
+    "dependencies": ["primordia-truth-gate", "rime-core-clarity", "ecotwin-token-sobriety"],
+    "conflicts": [],
+    "tokenWeight": 0.55
   }
 ]

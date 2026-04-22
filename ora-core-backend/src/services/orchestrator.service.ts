@@ -20,6 +20,7 @@ const keywordCapabilityMap: Array<{ keywords: string[]; capabilityId: string }> 
   { keywords: ["consultant", "strategie", "decision", "risque", "business"], capabilityId: "consultant-mode" },
   { keywords: ["pme", "vente", "commercial", "client", "roi"], capabilityId: "sme-mode" },
   { keywords: ["gouvernance", "veto", "securite", "canon"], capabilityId: "strong-governance" },
+  { keywords: ["halo", "audit", "auditer", "trace", "tracabilite", "traçabilite", "traçabilité", "ledger", "essence"], capabilityId: "governance-audit" },
   { keywords: ["image", "manga", "storyboard", "video", "visuel"], capabilityId: "visual-pipeline" }
 ];
 

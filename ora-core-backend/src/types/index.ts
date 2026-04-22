@@ -21,6 +21,7 @@ export const essenceTypeValues = [
   "reasoning_frame",
   "style_control",
   "safety_frame",
+  "traceability",
   "project_context",
   "persistent_preferences"
 ] as const;
@@ -162,4 +163,30 @@ export interface RepoInfo {
   repoUrl: string;
   sourceMode: "local-mock" | "github";
   isVerified: boolean;
+}
+export type HaloDecision = "ALLOW" | "MODIFY" | "REQUEST_EVIDENCE" | "BLOCK" | "TRACE_ONLY";
+export type HaloDecisionOwner = "PRIMORDIA" | "RIME" | "ECO_TWIN" | "HALO_TRACECORE";
+
+export interface HaloAuditMetrics {
+  tokensEst?: number;
+  energyWhEst?: number;
+  co2eqGEst?: number;
+  latencyMsMeasured?: number;
+  measured: boolean;
+}
+
+export interface HaloAuditEvent {
+  eventId: string;
+  timestamp: string;
+  sessionRef: string;
+  inputRef: string;
+  essencesActive: string[];
+  modulesActive: string[];
+  governanceTrigger: string;
+  decision: HaloDecision;
+  decisionOwner: HaloDecisionOwner;
+  reasonShort: string;
+  uncertaintyFlags: string[];
+  metrics: HaloAuditMetrics;
+  traceHash: string;
 }
