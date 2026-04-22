@@ -11,6 +11,7 @@ import { getCapabilities, listCapabilities } from "./capability.service.js";
 import { getModuleById, getModulesByIds, resolveModuleDependencies } from "../modules/registry.js";
 import { canUseModule, getPlan } from "./plan.service.js";
 import { resolveEssenceBundle } from "./essence.service.js";
+import { getMandatoryBaseModuleIds } from "./pack.service.js";
 
 const keywordCapabilityMap: Array<{ keywords: string[]; capabilityId: string }> = [
   { keywords: ["fiable", "fiabilite", "verifie", "verifier", "truth", "risque"], capabilityId: "reliability" },
@@ -20,7 +21,7 @@ const keywordCapabilityMap: Array<{ keywords: string[]; capabilityId: string }> 
   { keywords: ["consultant", "strategie", "decision", "risque", "business"], capabilityId: "consultant-mode" },
   { keywords: ["pme", "vente", "commercial", "client", "roi"], capabilityId: "sme-mode" },
   { keywords: ["gouvernance", "veto", "securite", "canon"], capabilityId: "strong-governance" },
-  { keywords: ["halo", "audit", "auditer", "trace", "tracabilite", "traçabilite", "traçabilité", "ledger", "essence"], capabilityId: "governance-audit" },
+  { keywords: ["halo", "audit", "auditer", "trace", "tracabilite", "ledger", "essence", "preuve"], capabilityId: "governance-audit" },
   { keywords: ["image", "manga", "storyboard", "video", "visuel"], capabilityId: "visual-pipeline" }
 ];
 
@@ -92,7 +93,7 @@ export function resolveSelection(input: SelectionResolveRequest): SelectionResul
     visibleCapabilityIds.has(capability.id) && capability.compatibleOutputs.includes(targetOutput)
   );
 
-  const baseModuleIds = new Set<string>(input.selectedModuleIds);
+  const baseModuleIds = new Set<string>([...getMandatoryBaseModuleIds(), ...input.selectedModuleIds]);
   for (const capability of selectedCapabilities) {
     for (const moduleId of capability.mappedModules) {
       baseModuleIds.add(moduleId);

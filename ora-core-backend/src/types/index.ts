@@ -190,3 +190,20 @@ export interface HaloAuditEvent {
   metrics: HaloAuditMetrics;
   traceHash: string;
 }
+
+export interface OraModulePack {
+  id: string;
+  publicName: string;
+  internalName: string;
+  description: string;
+  rationale: string;
+  mandatory: boolean;
+  stable: boolean;
+  visibility: "public" | "private";
+  minPlan: PlanTier;
+  includedModuleIds: string[];
+  includedEssenceIds: string[];
+  compatibleOutputs: OutputType[];
+  tags: string[];
+  status: "active" | "hidden" | "deprecated";
+}

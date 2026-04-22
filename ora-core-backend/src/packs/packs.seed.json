@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ora-core-foundation",
+    "publicName": "ORA Core Foundation",
+    "internalName": "ORA_CORE_FOUNDATION",
+    "description": "Pack obligatoire generique stable pour toute instance ouverte ORA Core OS.",
+    "rationale": "Base ouverte: clarte du raisonnement, veto verite, sobriete token, contrat routable, compilation exportable et trace audit HALO.",
+    "mandatory": true,
+    "stable": true,
+    "visibility": "public",
+    "minPlan": "free",
+    "includedModuleIds": [
+      "rime",
+      "primordia",
+      "ecotwin",
+      "gpl",
+      "ora-compiler-core",
+      "halo-tracecore"
+    ],
+    "includedEssenceIds": [
+      "rime-core-clarity",
+      "primordia-truth-gate",
+      "ecotwin-token-sobriety",
+      "gpl-exec-contract",
+      "ora-compiler-artifact-frame",
+      "halo-tracecore-ledger"
+    ],
+    "compatibleOutputs": ["direct", "md", "master"],
+    "tags": ["foundation", "open", "stable", "governance", "traceability", "generic"],
+    "status": "active"
+  }
+]

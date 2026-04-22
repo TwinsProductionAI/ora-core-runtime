@@ -44,7 +44,7 @@
     "label": "Gouvernance forte",
     "description": "Ajoute veto coherence, marquage d'incertitude et garde-fous.",
     "mappedModules": ["primordia", "rime"],
-    "requiredPlan": "creator",
+    "requiredPlan": "free",
     "compatibleOutputs": ["direct", "md", "master"],
     "tags": ["safety", "governance"],
     "status": "active"
@@ -94,7 +94,7 @@
     "label": "Audit HALO TraceCore",
     "description": "Ajoute une trace hashable des essences activees, verdicts de gouvernance et metriques estimees.",
     "mappedModules": ["halo-tracecore"],
-    "requiredPlan": "creator",
+    "requiredPlan": "free",
     "compatibleOutputs": ["direct", "md", "master"],
     "tags": ["halo", "audit", "governance", "traceability", "essence"],
     "status": "active"

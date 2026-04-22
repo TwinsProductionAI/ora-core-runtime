@@ -37,7 +37,7 @@
         "fullDescription":  "Module de gouvernance qui impose le marquage des incertitudes, bloque les contradictions et priorise verite sur confort.",
         "repoUrl":  "https://github.com/TwinsProductionAI/ora-core-os",
         "category":  "governance",
-        "tier":  "standard",
+        "tier":  "free",
         "compatibleOutputs":  [
                                   "direct",
                                   "md",
@@ -157,7 +157,7 @@
         "fullDescription":  "Protocole GrenapromptLinked pour normaliser intention, contraintes, routage et format de sortie.",
         "repoUrl":  "https://github.com/TwinsProductionAI/grenaprompt-linked",
         "category":  "protocol",
-        "tier":  "standard",
+        "tier":  "free",
         "compatibleOutputs":  [
                                   "direct",
                                   "md",
@@ -310,7 +310,7 @@
     "fullDescription": "Module HALO isole pour auditer le comportement de gouvernance: essences activees, proprietaire du verdict, incertitudes conservees, estimation token/energie et hash de trace sans prompt brut sensible.",
     "repoUrl": "https://github.com/TwinsProductionAI/ora-core-runtime",
     "category": "governance",
-    "tier": "standard",
+    "tier": "free",
     "compatibleOutputs": ["direct", "md", "master"],
     "dependencies": ["primordia", "rime", "ecotwin"],
     "conflicts": [],

@@ -5,7 +5,7 @@
     "description": "Decouverte avec modules de base et sortie direct prompt.",
     "includedModuleTiers": ["free"],
     "allowedOutputs": ["direct"],
-    "visibleCapabilityIds": ["reliability", "ambiguity-reduction", "project-export"],
+    "visibleCapabilityIds": ["reliability", "ambiguity-reduction", "strong-governance", "governance-audit", "project-export"],
     "maxTokenEstimate": 2500,
     "upgradeHint": "Passe en Creator pour debloquer les modules standard et l'export markdown."
   },

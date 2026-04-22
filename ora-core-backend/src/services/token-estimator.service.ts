@@ -3,6 +3,7 @@ import type { EstimateTokensRequest } from "../schemas/request.schema.js";
 import { getActivatedModuleIds } from "./capability.service.js";
 import { resolveModuleDependencies } from "../modules/registry.js";
 import { resolveEssenceBundle } from "./essence.service.js";
+import { getMandatoryBaseModuleIds } from "./pack.service.js";
 
 const outputScaffoldTokens: Record<OutputType, number> = {
   direct: 380,
@@ -27,6 +28,7 @@ export function estimateTextTokens(text: string): number {
 
 export function estimateTokenCost(input: EstimateTokensRequest): TokenEstimate {
   const activatedModuleIds = new Set<string>([
+    ...getMandatoryBaseModuleIds(),
     ...input.selectedModuleIds,
     ...getActivatedModuleIds(input.selectedCapabilityIds)
   ]);
