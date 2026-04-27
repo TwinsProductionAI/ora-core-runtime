@@ -16,6 +16,21 @@ import { getMandatoryBaseModuleIds } from "./pack.service.js";
 const keywordCapabilityMap: Array<{ keywords: string[]; capabilityId: string }> = [
   { keywords: ["fiable", "fiabilite", "verifie", "verifier", "truth", "risque"], capabilityId: "reliability" },
   { keywords: ["ambigu", "ambiguite", "clarifie", "structure", "contrainte"], capabilityId: "ambiguity-reduction" },
+  {
+    keywords: [
+      "essence me",
+      "anti-boucle",
+      "anti boucle",
+      "boucle",
+      "tourne en rond",
+      "incertitude",
+      "compression",
+      "compute",
+      "latence",
+      "action minimale"
+    ],
+    capabilityId: "decision-compression"
+  },
   { keywords: ["creatif", "idee", "concept", "story", "narration", "prompt"], capabilityId: "guided-creativity" },
   { keywords: ["markdown", ".md", "export", "projet", "download"], capabilityId: "project-export" },
   { keywords: ["consultant", "strategie", "decision", "risque", "business"], capabilityId: "consultant-mode" },
@@ -163,3 +178,4 @@ function detectConflicts(modules: OraModule[]): SelectionConflict[] {
 export function getModuleSelectionPreview(moduleIds: string[]): OraModule[] {
   return moduleIds.map((moduleId) => getModuleById(moduleId));
 }
+
