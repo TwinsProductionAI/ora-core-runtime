@@ -1,102 +1,232 @@
 [
-  {
-    "id": "reliability",
-    "label": "Fiabilite renforcee",
-    "description": "Ajoute verification logique, prudence factuelle et sobriete.",
-    "mappedModules": ["rime", "ecotwin"],
-    "requiredPlan": "free",
-    "compatibleOutputs": ["direct", "md", "master"],
-    "tags": ["truth", "clarity", "low-risk"],
-    "status": "active"
-  },
-  {
-    "id": "ambiguity-reduction",
-    "label": "Reduction des ambiguites",
-    "description": "Clarifie la demande et stabilise les contraintes.",
-    "mappedModules": ["rime", "gpl"],
-    "requiredPlan": "free",
-    "compatibleOutputs": ["direct", "md", "master"],
-    "tags": ["clarity", "protocol"],
-    "status": "active"
-  },
-  {
-    "id": "guided-creativity",
-    "label": "Creativite guidee",
-    "description": "Produit des idees fortes sans sortir du cadre utilisateur.",
-    "mappedModules": ["crea120", "rime"],
-    "requiredPlan": "creator",
-    "compatibleOutputs": ["direct", "md", "master"],
-    "tags": ["creative", "ideation"],
-    "status": "active"
-  },
-  {
-    "id": "professional-structure",
-    "label": "Structure professionnelle",
-    "description": "Transforme une intention en livrable propre, stable et reutilisable.",
-    "mappedModules": ["gpl", "arch-plus"],
-    "requiredPlan": "creator",
-    "compatibleOutputs": ["direct", "md", "master"],
-    "tags": ["project", "structure", "profile"],
-    "status": "active"
-  },
-  {
-    "id": "strong-governance",
-    "label": "Gouvernance forte",
-    "description": "Ajoute veto coherence, marquage d'incertitude et garde-fous.",
-    "mappedModules": ["primordia", "rime"],
-    "requiredPlan": "free",
-    "compatibleOutputs": ["direct", "md", "master"],
-    "tags": ["safety", "governance"],
-    "status": "active"
-  },
-  {
-    "id": "project-export",
-    "label": "Export projet",
-    "description": "Prepare un contenu direct prompt, markdown projet ou preferences a telecharger cote frontend.",
-    "mappedModules": ["ora-compiler-core", "gpl"],
-    "requiredPlan": "free",
-    "compatibleOutputs": ["direct", "md", "master"],
-    "tags": ["export", "markdown"],
-    "status": "active"
-  },
-  {
-    "id": "consultant-mode",
-    "label": "Mode consultant",
-    "description": "Ajoute cadrage decisionnel, risques, arbitrage et recommandation.",
-    "mappedModules": ["aura-mxb", "primordia", "rime"],
-    "requiredPlan": "creator",
-    "compatibleOutputs": ["direct", "md", "master"],
-    "tags": ["strategy", "risk", "decision"],
-    "status": "active"
-  },
-  {
-    "id": "sme-mode",
-    "label": "Mode PME",
-    "description": "Oriente le livrable vers valeur, confiance, confort et conversion.",
-    "mappedModules": ["soncas", "aura-mxb", "gpl"],
-    "requiredPlan": "creator",
-    "compatibleOutputs": ["direct", "md", "master"],
-    "tags": ["business", "sales", "sme"],
-    "status": "active"
-  },
-  {
-    "id": "visual-pipeline",
-    "label": "Pipeline visuel",
-    "description": "Cadre prompts image, storyboard, manga et video proprement.",
-    "mappedModules": ["vg-plus", "crea120", "rime"],
-    "requiredPlan": "pro",
-    "compatibleOutputs": ["direct", "md"],
-    "tags": ["visual", "prompt", "storyboard"],
-    "status": "active"
-  },
-  {
-    "id": "governance-audit",
-    "label": "Audit HALO TraceCore",
-    "description": "Ajoute une trace hashable des essences activees, verdicts de gouvernance et metriques estimees.",
-    "mappedModules": ["halo-tracecore"],
-    "requiredPlan": "free",
-    "compatibleOutputs": ["direct", "md", "master"],
-    "tags": ["halo", "audit", "governance", "traceability", "essence"],
-    "status": "active"
-  }
+    {
+        "id":  "reliability",
+        "label":  "Fiabilite renforcee",
+        "description":  "Ajoute verification logique, prudence factuelle et sobriete.",
+        "mappedModules":  [
+                              "rime",
+                              "ecotwin"
+                          ],
+        "requiredPlan":  "free",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "tags":  [
+                     "truth",
+                     "clarity",
+                     "low-risk"
+                 ],
+        "status":  "active"
+    },
+    {
+        "id":  "ambiguity-reduction",
+        "label":  "Reduction des ambiguites",
+        "description":  "Clarifie la demande et stabilise les contraintes.",
+        "mappedModules":  [
+                              "rime",
+                              "gpl"
+                          ],
+        "requiredPlan":  "free",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "tags":  [
+                     "clarity",
+                     "protocol"
+                 ],
+        "status":  "active"
+    },
+    {
+        "id":  "guided-creativity",
+        "label":  "Creativite guidee",
+        "description":  "Produit des idees fortes sans sortir du cadre utilisateur.",
+        "mappedModules":  [
+                              "crea120",
+                              "rime"
+                          ],
+        "requiredPlan":  "creator",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "tags":  [
+                     "creative",
+                     "ideation"
+                 ],
+        "status":  "active"
+    },
+    {
+        "id":  "professional-structure",
+        "label":  "Structure professionnelle",
+        "description":  "Transforme une intention en livrable propre, stable et reutilisable.",
+        "mappedModules":  [
+                              "gpl",
+                              "arch-plus"
+                          ],
+        "requiredPlan":  "creator",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "tags":  [
+                     "project",
+                     "structure",
+                     "profile"
+                 ],
+        "status":  "active"
+    },
+    {
+        "id":  "strong-governance",
+        "label":  "Gouvernance forte",
+        "description":  "Ajoute veto coherence, marquage d\u0027incertitude et garde-fous.",
+        "mappedModules":  [
+                              "primordia",
+                              "rime"
+                          ],
+        "requiredPlan":  "free",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "tags":  [
+                     "safety",
+                     "governance"
+                 ],
+        "status":  "active"
+    },
+    {
+        "id":  "project-export",
+        "label":  "Export projet",
+        "description":  "Prepare un contenu direct prompt, markdown projet ou preferences a telecharger cote frontend.",
+        "mappedModules":  [
+                              "ora-compiler-core",
+                              "gpl"
+                          ],
+        "requiredPlan":  "free",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "tags":  [
+                     "export",
+                     "markdown"
+                 ],
+        "status":  "active"
+    },
+    {
+        "id":  "consultant-mode",
+        "label":  "Mode consultant",
+        "description":  "Ajoute cadrage decisionnel, risques, arbitrage et recommandation.",
+        "mappedModules":  [
+                              "aura-mxb",
+                              "primordia",
+                              "rime"
+                          ],
+        "requiredPlan":  "creator",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "tags":  [
+                     "strategy",
+                     "risk",
+                     "decision"
+                 ],
+        "status":  "active"
+    },
+    {
+        "id":  "sme-mode",
+        "label":  "Mode PME",
+        "description":  "Oriente le livrable vers valeur, confiance, confort et conversion.",
+        "mappedModules":  [
+                              "soncas",
+                              "aura-mxb",
+                              "gpl"
+                          ],
+        "requiredPlan":  "creator",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "tags":  [
+                     "business",
+                     "sales",
+                     "sme"
+                 ],
+        "status":  "active"
+    },
+    {
+        "id":  "visual-pipeline",
+        "label":  "Pipeline visuel",
+        "description":  "Cadre prompts image, storyboard, manga et video proprement.",
+        "mappedModules":  [
+                              "vg-plus",
+                              "crea120",
+                              "rime"
+                          ],
+        "requiredPlan":  "pro",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md"
+                              ],
+        "tags":  [
+                     "visual",
+                     "prompt",
+                     "storyboard"
+                 ],
+        "status":  "active"
+    },
+    {
+        "id":  "governance-audit",
+        "label":  "Audit HALO TraceCore",
+        "description":  "Ajoute une trace hashable des essences activees, verdicts de gouvernance et metriques estimees.",
+        "mappedModules":  [
+                              "halo-tracecore"
+                          ],
+        "requiredPlan":  "free",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "tags":  [
+                     "halo",
+                     "audit",
+                     "governance",
+                     "traceability",
+                     "essence"
+                 ],
+        "status":  "active"
+    },
+    {
+        "id":  "decision-compression",
+        "label":  "Compression decisionnelle",
+        "description":  "Coupe les boucles d\u0027incertitude, extrait l\u0027essence et force une prochaine action minimale utile.",
+        "mappedModules":  [
+                              "essence-me-backend"
+                          ],
+        "requiredPlan":  "free",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "tags":  [
+                     "anti-loop",
+                     "uncertainty",
+                     "compression",
+                     "efficiency"
+                 ],
+        "status":  "active"
+    }
 ]

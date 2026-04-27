@@ -5,7 +5,7 @@
     "description": "Decouverte avec modules de base et sortie direct prompt.",
     "includedModuleTiers": ["free"],
     "allowedOutputs": ["direct"],
-    "visibleCapabilityIds": ["reliability", "ambiguity-reduction", "strong-governance", "governance-audit", "project-export"],
+    "visibleCapabilityIds": ["reliability", "ambiguity-reduction", "decision-compression", "strong-governance", "governance-audit", "project-export"],
     "maxTokenEstimate": 2500,
     "upgradeHint": "Passe en Creator pour debloquer les modules standard et l'export markdown."
   },
@@ -15,7 +15,7 @@
     "description": "Creation et structure standard pour projets individuels.",
     "includedModuleTiers": ["free", "standard"],
     "allowedOutputs": ["direct", "md", "master"],
-    "visibleCapabilityIds": ["reliability", "ambiguity-reduction", "guided-creativity", "professional-structure", "strong-governance", "governance-audit", "project-export", "consultant-mode", "sme-mode"],
+    "visibleCapabilityIds": ["reliability", "ambiguity-reduction", "decision-compression", "guided-creativity", "professional-structure", "strong-governance", "governance-audit", "project-export", "consultant-mode", "sme-mode"],
     "maxTokenEstimate": 9000,
     "upgradeHint": "Passe en Pro pour debloquer ARCH+, VG+ et les workflows avances."
   },

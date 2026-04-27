@@ -302,22 +302,72 @@
         "status":  "stable",
         "validationState":  "mocked"
     },
-  {
-    "id": "halo-tracecore",
-    "publicName": "HALO TraceCore",
-    "internalName": "HALO_TRACECORE",
-    "description": "Trace les essences actives, les verdicts de gouvernance et les couts estimes.",
-    "fullDescription": "Module HALO isole pour auditer le comportement de gouvernance: essences activees, proprietaire du verdict, incertitudes conservees, estimation token/energie et hash de trace sans prompt brut sensible.",
-    "repoUrl": "https://github.com/TwinsProductionAI/ora-core-runtime",
-    "category": "governance",
-    "tier": "free",
-    "compatibleOutputs": ["direct", "md", "master"],
-    "dependencies": ["primordia", "rime", "ecotwin"],
-    "conflicts": [],
-    "tokenCostWeight": 0.6,
-    "codeTemplate": "HALO_TRACECORE_AUDIT_V1",
-    "tags": ["halo", "audit", "traceability", "essence", "energy"],
-    "status": "beta",
-    "validationState": "draft"
-  }
+    {
+        "id":  "halo-tracecore",
+        "publicName":  "HALO TraceCore",
+        "internalName":  "HALO_TRACECORE",
+        "description":  "Trace les essences actives, les verdicts de gouvernance et les couts estimes.",
+        "fullDescription":  "Module HALO isole pour auditer le comportement de gouvernance: essences activees, proprietaire du verdict, incertitudes conservees, estimation token/energie et hash de trace sans prompt brut sensible.",
+        "repoUrl":  "https://github.com/TwinsProductionAI/ora-core-runtime",
+        "category":  "governance",
+        "tier":  "free",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "dependencies":  [
+                             "primordia",
+                             "rime",
+                             "ecotwin"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenCostWeight":  0.6,
+        "codeTemplate":  "HALO_TRACECORE_AUDIT_V1",
+        "tags":  [
+                     "halo",
+                     "audit",
+                     "traceability",
+                     "essence",
+                     "energy"
+                 ],
+        "status":  "beta",
+        "validationState":  "draft"
+    },
+    {
+        "id":  "essence-me-backend",
+        "publicName":  "Essence Me Backend",
+        "internalName":  "ESSENCE_ME_BACKEND",
+        "description":  "Coupe les boucles d\u0027incertitude et force l\u0027action minimale utile.",
+        "fullDescription":  "Module de compression decisionnelle qui surveille les repetitions de raisonnement, classe l\u0027incertitude reelle, extrait une carte d\u0027essence compacte et choisit une seule prochaine action utile au lieu de prolonger l\u0027analyse sans gain.",
+        "repoUrl":  "https://github.com/TwinsProductionAI/ora-core-runtime",
+        "category":  "efficiency",
+        "tier":  "free",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "dependencies":  [
+                             "rime",
+                             "primordia",
+                             "ecotwin"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenCostWeight":  0.5,
+        "codeTemplate":  "ESSENCE_ME_BACKEND_V1",
+        "tags":  [
+                     "anti-loop",
+                     "compression",
+                     "uncertainty",
+                     "decision",
+                     "compute"
+                 ],
+        "status":  "beta",
+        "validationState":  "draft"
+    }
 ]

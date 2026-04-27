@@ -1,134 +1,248 @@
 [
-  {
-    "essenceId": "rime-core-clarity",
-    "moduleId": "rime",
-    "essenceType": "clarity",
-    "targetOutputs": ["direct", "md", "master"],
-    "priority": 90,
-    "compressionLevel": 2,
-    "injectableContent": "RIME:separer_faits_hypotheses_suggestions;detecter_ambiguite;clarifier_contraintes;downshift_si_incertain",
-    "dependencies": [],
-    "conflicts": [],
-    "tokenWeight": 0.8
-  },
-  {
-    "essenceId": "primordia-truth-gate",
-    "moduleId": "primordia",
-    "essenceType": "governance",
-    "targetOutputs": ["direct", "md", "master"],
-    "priority": 100,
-    "compressionLevel": 2,
-    "injectableContent": "PRIMORDIA:truth_over_comfort;no_fake_sources;mark_uncertainty;block_contradiction;safe_redirect_if_needed",
-    "dependencies": ["rime-core-clarity"],
-    "conflicts": [],
-    "tokenWeight": 1.0
-  },
-  {
-    "essenceId": "ecotwin-token-sobriety",
-    "moduleId": "ecotwin",
-    "essenceType": "compression",
-    "targetOutputs": ["direct", "md", "master"],
-    "priority": 70,
-    "compressionLevel": 3,
-    "injectableContent": "ECOTWIN:min_sufficient_output;avoid_bloat;preserve_task_completion;qualitative_energy_only",
-    "dependencies": [],
-    "conflicts": [],
-    "tokenWeight": 0.5
-  },
-  {
-    "essenceId": "crea120-controlled-divergence",
-    "moduleId": "crea120",
-    "essenceType": "style_control",
-    "targetOutputs": ["direct", "md", "master"],
-    "priority": 60,
-    "compressionLevel": 2,
-    "injectableContent": "CREA120:generate_variants_under_constraints;label_hypotheses;novelty_without_overclaim;select_actionable_output",
-    "dependencies": ["rime-core-clarity"],
-    "conflicts": [],
-    "tokenWeight": 0.9
-  },
-  {
-    "essenceId": "aura-mxb-decision-scorecard",
-    "moduleId": "aura-mxb",
-    "essenceType": "reasoning_frame",
-    "targetOutputs": ["direct", "md", "master"],
-    "priority": 65,
-    "compressionLevel": 2,
-    "injectableContent": "AURA_MXB:score_boldness_safety_truth_iteration_cost;recommend_GO_TEST_WAIT_NO;state_primary_risk",
-    "dependencies": ["rime-core-clarity"],
-    "conflicts": [],
-    "tokenWeight": 0.85
-  },
-  {
-    "essenceId": "gpl-exec-contract",
-    "moduleId": "gpl",
-    "essenceType": "formatting",
-    "targetOutputs": ["direct", "md", "master"],
-    "priority": 75,
-    "compressionLevel": 2,
-    "injectableContent": "GPL:normalize_intent_constraints_route_output;compile_as_contract;keep_human_machine_readable",
-    "dependencies": ["rime-core-clarity"],
-    "conflicts": [],
-    "tokenWeight": 0.8
-  },
-  {
-    "essenceId": "arch-plus-profile-frame",
-    "moduleId": "arch-plus",
-    "essenceType": "project_context",
-    "targetOutputs": ["direct", "md", "master"],
-    "priority": 55,
-    "compressionLevel": 2,
-    "injectableContent": "ARCH_PLUS:define_role_goal_tone_limits_personae;warn_tone_risk_mismatch;profile_bound_not_roleplay",
-    "dependencies": ["rime-core-clarity", "gpl-exec-contract"],
-    "conflicts": [],
-    "tokenWeight": 1.0
-  },
-  {
-    "essenceId": "vg-plus-visual-layers",
-    "moduleId": "vg-plus",
-    "essenceType": "formatting",
-    "targetOutputs": ["direct", "md"],
-    "priority": 50,
-    "compressionLevel": 2,
-    "injectableContent": "VG_PLUS:compose_layers_intent_camera_readability;digital_clean;no_oil_canvas_texture;canon_lock",
-    "dependencies": ["rime-core-clarity", "crea120-controlled-divergence"],
-    "conflicts": [],
-    "tokenWeight": 1.1
-  },
-  {
-    "essenceId": "soncas-business-tuning",
-    "moduleId": "soncas",
-    "essenceType": "style_control",
-    "targetOutputs": ["direct", "md", "master"],
-    "priority": 45,
-    "compressionLevel": 2,
-    "injectableContent": "SONCAS:map_security_pride_novelty_comfort_money_sympathy;prioritize_evidence_roi_trust_for_sme",
-    "dependencies": ["rime-core-clarity"],
-    "conflicts": [],
-    "tokenWeight": 0.7
-  },
-  {
-    "essenceId": "ora-compiler-artifact-frame",
-    "moduleId": "ora-compiler-core",
-    "essenceType": "formatting",
-    "targetOutputs": ["direct", "md", "master"],
-    "priority": 80,
-    "compressionLevel": 2,
-    "injectableContent": "ORA_COMPILER:emit_direct_prompt_project_md_master_preferences;include_tok_est;avoid_raw_module_dump",
-    "dependencies": ["rime-core-clarity", "ecotwin-token-sobriety"],
-    "conflicts": [],
-    "tokenWeight": 0.75
-  },
-  {
-    "essenceId": "halo-tracecore-ledger",
-    "moduleId": "halo-tracecore",
-    "essenceType": "traceability",
-    "targetOutputs": ["direct", "md", "master"],
-    "priority": 88,
-    "compressionLevel": 3,
-    "injectableContent": "HALO_TRACECORE:trace_essences_active;trace_decision_owner;hash_refs_only;metrics_estimated_unless_measured;emit_audit_event",
-    "dependencies": ["primordia-truth-gate", "rime-core-clarity", "ecotwin-token-sobriety"],
-    "conflicts": [],
-    "tokenWeight": 0.55
-  }
+    {
+        "essenceId":  "rime-core-clarity",
+        "moduleId":  "rime",
+        "essenceType":  "clarity",
+        "targetOutputs":  [
+                              "direct",
+                              "md",
+                              "master"
+                          ],
+        "priority":  90,
+        "compressionLevel":  2,
+        "injectableContent":  "RIME:separer_faits_hypotheses_suggestions;detecter_ambiguite;clarifier_contraintes;downshift_si_incertain",
+        "dependencies":  [
+
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenWeight":  0.8
+    },
+    {
+        "essenceId":  "primordia-truth-gate",
+        "moduleId":  "primordia",
+        "essenceType":  "governance",
+        "targetOutputs":  [
+                              "direct",
+                              "md",
+                              "master"
+                          ],
+        "priority":  100,
+        "compressionLevel":  2,
+        "injectableContent":  "PRIMORDIA:truth_over_comfort;no_fake_sources;mark_uncertainty;block_contradiction;safe_redirect_if_needed",
+        "dependencies":  [
+                             "rime-core-clarity"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenWeight":  1.0
+    },
+    {
+        "essenceId":  "ecotwin-token-sobriety",
+        "moduleId":  "ecotwin",
+        "essenceType":  "compression",
+        "targetOutputs":  [
+                              "direct",
+                              "md",
+                              "master"
+                          ],
+        "priority":  70,
+        "compressionLevel":  3,
+        "injectableContent":  "ECOTWIN:min_sufficient_output;avoid_bloat;preserve_task_completion;qualitative_energy_only",
+        "dependencies":  [
+
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenWeight":  0.5
+    },
+    {
+        "essenceId":  "crea120-controlled-divergence",
+        "moduleId":  "crea120",
+        "essenceType":  "style_control",
+        "targetOutputs":  [
+                              "direct",
+                              "md",
+                              "master"
+                          ],
+        "priority":  60,
+        "compressionLevel":  2,
+        "injectableContent":  "CREA120:generate_variants_under_constraints;label_hypotheses;novelty_without_overclaim;select_actionable_output",
+        "dependencies":  [
+                             "rime-core-clarity"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenWeight":  0.9
+    },
+    {
+        "essenceId":  "aura-mxb-decision-scorecard",
+        "moduleId":  "aura-mxb",
+        "essenceType":  "reasoning_frame",
+        "targetOutputs":  [
+                              "direct",
+                              "md",
+                              "master"
+                          ],
+        "priority":  65,
+        "compressionLevel":  2,
+        "injectableContent":  "AURA_MXB:score_boldness_safety_truth_iteration_cost;recommend_GO_TEST_WAIT_NO;state_primary_risk",
+        "dependencies":  [
+                             "rime-core-clarity"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenWeight":  0.85
+    },
+    {
+        "essenceId":  "gpl-exec-contract",
+        "moduleId":  "gpl",
+        "essenceType":  "formatting",
+        "targetOutputs":  [
+                              "direct",
+                              "md",
+                              "master"
+                          ],
+        "priority":  75,
+        "compressionLevel":  2,
+        "injectableContent":  "GPL:normalize_intent_constraints_route_output;compile_as_contract;keep_human_machine_readable",
+        "dependencies":  [
+                             "rime-core-clarity"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenWeight":  0.8
+    },
+    {
+        "essenceId":  "arch-plus-profile-frame",
+        "moduleId":  "arch-plus",
+        "essenceType":  "project_context",
+        "targetOutputs":  [
+                              "direct",
+                              "md",
+                              "master"
+                          ],
+        "priority":  55,
+        "compressionLevel":  2,
+        "injectableContent":  "ARCH_PLUS:define_role_goal_tone_limits_personae;warn_tone_risk_mismatch;profile_bound_not_roleplay",
+        "dependencies":  [
+                             "rime-core-clarity",
+                             "gpl-exec-contract"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenWeight":  1.0
+    },
+    {
+        "essenceId":  "vg-plus-visual-layers",
+        "moduleId":  "vg-plus",
+        "essenceType":  "formatting",
+        "targetOutputs":  [
+                              "direct",
+                              "md"
+                          ],
+        "priority":  50,
+        "compressionLevel":  2,
+        "injectableContent":  "VG_PLUS:compose_layers_intent_camera_readability;digital_clean;no_oil_canvas_texture;canon_lock",
+        "dependencies":  [
+                             "rime-core-clarity",
+                             "crea120-controlled-divergence"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenWeight":  1.1
+    },
+    {
+        "essenceId":  "soncas-business-tuning",
+        "moduleId":  "soncas",
+        "essenceType":  "style_control",
+        "targetOutputs":  [
+                              "direct",
+                              "md",
+                              "master"
+                          ],
+        "priority":  45,
+        "compressionLevel":  2,
+        "injectableContent":  "SONCAS:map_security_pride_novelty_comfort_money_sympathy;prioritize_evidence_roi_trust_for_sme",
+        "dependencies":  [
+                             "rime-core-clarity"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenWeight":  0.7
+    },
+    {
+        "essenceId":  "ora-compiler-artifact-frame",
+        "moduleId":  "ora-compiler-core",
+        "essenceType":  "formatting",
+        "targetOutputs":  [
+                              "direct",
+                              "md",
+                              "master"
+                          ],
+        "priority":  80,
+        "compressionLevel":  2,
+        "injectableContent":  "ORA_COMPILER:emit_direct_prompt_project_md_master_preferences;include_tok_est;avoid_raw_module_dump",
+        "dependencies":  [
+                             "rime-core-clarity",
+                             "ecotwin-token-sobriety"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenWeight":  0.75
+    },
+    {
+        "essenceId":  "halo-tracecore-ledger",
+        "moduleId":  "halo-tracecore",
+        "essenceType":  "traceability",
+        "targetOutputs":  [
+                              "direct",
+                              "md",
+                              "master"
+                          ],
+        "priority":  88,
+        "compressionLevel":  3,
+        "injectableContent":  "HALO_TRACECORE:trace_essences_active;trace_decision_owner;hash_refs_only;metrics_estimated_unless_measured;emit_audit_event",
+        "dependencies":  [
+                             "primordia-truth-gate",
+                             "rime-core-clarity",
+                             "ecotwin-token-sobriety"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenWeight":  0.55
+    },
+    {
+        "essenceId":  "essence-me-decision-compression",
+        "moduleId":  "essence-me-backend",
+        "essenceType":  "compression",
+        "targetOutputs":  [
+                              "direct",
+                              "md",
+                              "master"
+                          ],
+        "priority":  85,
+        "compressionLevel":  3,
+        "injectableContent":  "ESSENCE_ME:monitor_repeat_after_2_cycles;detect_no_new_information_or_tool_gain;classify_uncertainty=data_missing|context_missing|reasoning_block|conflict|overcomplexity|low_value_continuation;compress_to=GOAL|KNOWN|UNKNOWN|BLOCKER|RISK|MIN_ACTION|STOP_RULE|CONFIDENCE;route=answer_now|ask_one_question|search_web|search_files|simplify_scope|produce_partial|stop_clean;no_new_hypothesis_without_new_data",
+        "dependencies":  [
+                             "rime-core-clarity",
+                             "primordia-truth-gate",
+                             "ecotwin-token-sobriety"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenWeight":  0.45
+    }
 ]
