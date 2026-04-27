@@ -90,6 +90,40 @@
         "validationState":  "mocked"
     },
     {
+        "id":  "essence-me-backend",
+        "publicName":  "Essence Me Backend",
+        "internalName":  "ESSENCE_ME_BACKEND",
+        "description":  "Coupe les boucles d'incertitude et force l'action minimale utile.",
+        "fullDescription":  "Module de compression decisionnelle qui surveille les repetitions de raisonnement, classe l'incertitude reelle, extrait une carte d'essence compacte et choisit une seule prochaine action utile au lieu de prolonger l'analyse sans gain.",
+        "repoUrl":  "https://github.com/TwinsProductionAI/ora-core-runtime",
+        "category":  "efficiency",
+        "tier":  "free",
+        "compatibleOutputs":  [
+                                  "direct",
+                                  "md",
+                                  "master"
+                              ],
+        "dependencies":  [
+                             "rime",
+                             "primordia",
+                             "ecotwin"
+                         ],
+        "conflicts":  [
+
+                      ],
+        "tokenCostWeight":  0.5,
+        "codeTemplate":  "ESSENCE_ME_BACKEND_V1",
+        "tags":  [
+                     "anti-loop",
+                     "compression",
+                     "uncertainty",
+                     "decision",
+                     "compute"
+                 ],
+        "status":  "beta",
+        "validationState":  "draft"
+    },
+    {
         "id":  "crea120",
         "publicName":  "Creativite guidee",
         "internalName":  "CREA120",

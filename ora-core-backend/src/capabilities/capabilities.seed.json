@@ -20,6 +20,16 @@
     "status": "active"
   },
   {
+    "id": "decision-compression",
+    "label": "Compression decisionnelle",
+    "description": "Coupe les boucles d'incertitude, extrait l'essence et force une prochaine action minimale utile.",
+    "mappedModules": ["essence-me-backend"],
+    "requiredPlan": "free",
+    "compatibleOutputs": ["direct", "md", "master"],
+    "tags": ["anti-loop", "uncertainty", "compression", "efficiency"],
+    "status": "active"
+  },
+  {
     "id": "guided-creativity",
     "label": "Creativite guidee",
     "description": "Produit des idees fortes sans sortir du cadre utilisateur.",

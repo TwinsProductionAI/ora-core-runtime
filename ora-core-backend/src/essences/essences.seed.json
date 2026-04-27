@@ -36,6 +36,18 @@
     "tokenWeight": 0.5
   },
   {
+    "essenceId": "essence-me-decision-compression",
+    "moduleId": "essence-me-backend",
+    "essenceType": "compression",
+    "targetOutputs": ["direct", "md", "master"],
+    "priority": 85,
+    "compressionLevel": 3,
+    "injectableContent": "ESSENCE_ME:monitor_repeat_after_2_cycles;detect_no_new_information_or_tool_gain;classify_uncertainty=data_missing|context_missing|reasoning_block|conflict|overcomplexity|low_value_continuation;compress_to=GOAL|KNOWN|UNKNOWN|BLOCKER|RISK|MIN_ACTION|STOP_RULE|CONFIDENCE;route=answer_now|ask_one_question|search_web|search_files|simplify_scope|produce_partial|stop_clean;no_new_hypothesis_without_new_data",
+    "dependencies": ["rime-core-clarity", "primordia-truth-gate", "ecotwin-token-sobriety"],
+    "conflicts": [],
+    "tokenWeight": 0.45
+  },
+  {
     "essenceId": "crea120-controlled-divergence",
     "moduleId": "crea120",
     "essenceType": "style_control",
