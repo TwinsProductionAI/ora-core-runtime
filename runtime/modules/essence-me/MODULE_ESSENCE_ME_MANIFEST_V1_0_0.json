@@ -1,0 +1,45 @@
+{
+  "manifest_version": "1.0",
+  "module": {
+    "id": "MODULE_ESSENCE_ME_BACKEND_V1_0",
+    "name": "ESSENCE_ME_BACKEND Runtime Bundle",
+    "version": "1.0.0",
+    "owner": "Xavier_Fleriag",
+    "label": "Twins_Productions",
+    "summary": "Deterministic decision-compression module that detects low-gain reasoning loops and selects one minimal next action.",
+    "status": "PUBLIC_RUNTIME_READY"
+  },
+  "runtime": {
+    "primary": "BACKEND",
+    "service_path": "../../../ora-core-backend/src/services/essence-me.service.ts",
+    "schema_path": "../../../ora-core-backend/src/schemas/essence-me.schema.ts",
+    "route_path": "../../../ora-core-backend/src/routes/essence-me.routes.ts",
+    "commands": {
+      "ESSENCE_ME:SPEC": "GET /essence-me/spec",
+      "ESSENCE_ME:ANALYZE": "POST /essence-me/analyze"
+    }
+  },
+  "documents": {
+    "spec": "MODULE_ESSENCE_ME_BACKEND_GPV2_v1.0.0.json",
+    "readme": "README.md"
+  },
+  "data": {
+    "sample_payload": "sample_payload.json"
+  },
+  "quality_gates": [
+    "truth_over_comfort",
+    "no_new_hypothesis_without_new_data",
+    "single_minimal_next_action_only",
+    "deterministic_uncertainty_classification",
+    "hashable_trace_available",
+    "high_stakes_bias_toward_search_or_partial_output"
+  ],
+  "integration": {
+    "ora_core_os": true,
+    "backend_module_registry": true,
+    "essence_registry": true,
+    "capability_registry": true,
+    "plan_visibility": true,
+    "halo_ready_trace": true
+  }
+}

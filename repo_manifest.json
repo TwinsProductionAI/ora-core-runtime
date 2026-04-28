@@ -5,6 +5,8 @@
   "source_profile": "public_runtime_bundle_from_ora_core_os_patches",
   "public_scope": [
     "gpv2 bootstrap runtime code",
+    "ora-core-backend registries and executable services",
+    "ESSENCE_ME decision-compression runtime bundle",
     "H-NERONS runtime module",
     "registries",
     "tests",

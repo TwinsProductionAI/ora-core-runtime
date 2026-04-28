@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-04-27
+- Published ESSENCE_ME_BACKEND as a first-class backend module in the public GitHub repo.
+- Added deterministic backend runtime schema, service, routes and orchestration heuristics for decision compression.
+- Added the public ESSENCE_ME runtime bundle, manifest, local spec copy and sample payload.
+- Updated repository scope documentation to include backend runtime and ESSENCE_ME assets.
+
 ## 2026-04-12
 - Added the first public H-NERONS runtime publication bundle.
 - Added module runtime, manifest, local public spec copy, sample payload, sample runner and module README.

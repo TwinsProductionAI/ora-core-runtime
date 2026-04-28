@@ -22,6 +22,7 @@ const keywordCapabilityMap: Array<{ keywords: string[]; capabilityId: string }> 
   { keywords: ["pme", "vente", "commercial", "client", "roi"], capabilityId: "sme-mode" },
   { keywords: ["gouvernance", "veto", "securite", "canon"], capabilityId: "strong-governance" },
   { keywords: ["halo", "audit", "auditer", "trace", "tracabilite", "ledger", "essence", "preuve"], capabilityId: "governance-audit" },
+  { keywords: ["bloque", "blocage", "tourne en rond", "loop", "stuck", "incertitude", "incertain", "action minimale", "prochaine action", "simplifie"], capabilityId: "decision-compression" },
   { keywords: ["image", "manga", "storyboard", "video", "visuel"], capabilityId: "visual-pipeline" }
 ];
 

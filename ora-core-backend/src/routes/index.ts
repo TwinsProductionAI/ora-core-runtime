@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { capabilitiesRouter } from "./capabilities.routes.js";
 import { compileRouter } from "./compile.routes.js";
+import { essenceMeRouter } from "./essence-me.routes.js";
 import { essencesRouter } from "./essences.routes.js";
 import { estimateRouter } from "./estimate.routes.js";
 import { haloRouter } from "./halo.routes.js";
@@ -20,6 +21,7 @@ router.use(reposRouter);
 router.use(modulesRouter);
 router.use(packsRouter);
 router.use(essencesRouter);
+router.use(essenceMeRouter);
 router.use(capabilitiesRouter);
 router.use(plansRouter);
 router.use(needsRouter);

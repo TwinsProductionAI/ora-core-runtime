@@ -1,0 +1,30 @@
+{
+  "userRequest": "Tu tournes en rond sur la meme analyse de module backend. Coupe la boucle et choisis la prochaine action utile minimale.",
+  "outputType": "direct",
+  "cycles": [
+    {
+      "summary": "Le module existe dans le registre mais nous hesitons encore sur la surface runtime minimale a publier.",
+      "newInformation": ["Le module est deja publie dans le registre backend."],
+      "toolsUsed": ["registry_scan"],
+      "openQuestions": ["Faut-il un service backend dedie ?"],
+      "uncertaintyHints": ["context_missing"]
+    },
+    {
+      "summary": "Le module existe dans le registre et nous hesitons toujours sur la surface runtime minimale a publier.",
+      "newInformation": [],
+      "toolsUsed": ["registry_scan"],
+      "openQuestions": ["Faut-il un service backend dedie ?"],
+      "uncertaintyHints": ["context_missing", "low_value_continuation"]
+    }
+  ],
+  "known": [
+    "Le module est dans GitHub.",
+    "Le backend accepte des routes et schemas par module."
+  ],
+  "unknown": ["Quelle surface runtime minimale faut-il publier pour le rendre executable ?"],
+  "blockers": ["Le raisonnement repete la meme question sans nouveau gain."],
+  "risks": ["Continuer l'analyse sans gain informationnel reel."],
+  "stakesLevel": "medium",
+  "allowSearchWeb": false,
+  "allowSearchFiles": true
+}

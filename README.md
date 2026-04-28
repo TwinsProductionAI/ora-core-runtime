@@ -2,7 +2,7 @@
 
 Runnable bootstrap runtime for ORA Core OS.
 
-This repository contains the public runtime bundle for the latest technical ORA Core OS modules: GPV2 parsing, GL/GL_G primitive handling, glyph registries, H-NERONS governance, runnable samples, and PowerShell tests.
+This repository contains the public runtime bundle for ORA Core OS technical modules: GPV2 parsing, GL/GL_G primitive handling, backend registries and services, ESSENCE_ME decision-compression runtime, H-NERONS governance, runnable samples, and PowerShell tests.
 
 ## Repository Role
 
@@ -19,6 +19,7 @@ This repository is the publication-ready public bundle for:
 - HGOV-aware runtime bootstrap
 - GPV2 parsing and compilation
 - GL and GL_G primitives handling
+- ESSENCE_ME decision-compression backend runtime
 - H-NERONS pre-emission factual governance runtime
 - glyph registry and letter bridge registry
 - PowerShell tests and runnable samples
@@ -43,9 +44,20 @@ These files are technical assets that benefit from:
 - `runtime/run_sample.ps1`
 - `runtime/sample_payload.json`
 - `runtime/sample_output.json`
+- `runtime/modules/essence-me/*`
 - `runtime/modules/h-nerons/*`
+- `ora-core-backend/*`
 - `tests/*.ps1`
 
+## ESSENCE_ME Module
+
+The `runtime/modules/essence-me` bundle provides:
+
+- deterministic loop detection across recent reasoning cycles
+- residual uncertainty classification into `data_missing`, `context_missing`, `reasoning_block`, `conflict`, `overcomplexity` or `low_value_continuation`
+- one minimal next action selection instead of open-ended continuation
+- a compact `GOAL|KNOWN|UNKNOWN|BLOCKER|RISK|MIN_ACTION|STOP_RULE|CONFIDENCE` state for backend orchestration
+- a hashable trace suitable for HALO-aligned auditing
 ## H-NERONS Module
 
 The `runtime/modules/h-nerons` bundle provides:

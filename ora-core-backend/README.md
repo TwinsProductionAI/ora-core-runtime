@@ -156,9 +156,14 @@ GET /health
 GET /repos
 GET /modules
 GET /modules/:id
+GET /packs
+GET /packs/base
+GET /packs/:id
 GET /essences
 GET /essences/:id
 GET /essences/resolve/by-modules?moduleIds=rime,primordia&outputType=direct
+GET /essence-me/spec
+GET /halo/spec
 GET /capabilities
 GET /plans
 ```
@@ -169,6 +174,8 @@ GET /plans
 POST /needs/analyze
 POST /selection/resolve
 POST /estimate/tokens
+POST /essence-me/analyze
+POST /halo/audit-events
 ```
 
 ### Phase 3
@@ -189,7 +196,7 @@ V1 renvoie un stub local. Le fetch GitHub distant sera branche ensuite.
 
 ## Sorties compilees
 
-- `POST /compile/direct` renvoie `TOK_EST≈X`, Grenaprompt lisible, essences injectees et `GPV2_MIN`.
+- `POST /compile/direct` renvoie `TOK_ESTÃ¢â€°Ë†X`, Grenaprompt lisible, essences injectees et `GPV2_MIN`.
 - `POST /compile/md` renvoie un markdown projet pret a telecharger cote frontend.
 - `POST /compile/master` renvoie un bloc preferences compact avec `CORE=[essences minifiees]`.
 

@@ -1,0 +1,94 @@
+{
+  "GPV2": {
+    "META": {
+      "PACK": "ORA_CORE_MODULE",
+      "NAME": "MODULE_ESSENCE_ME_BACKEND",
+      "VERSION": "1.0.0",
+      "OWNER": "Xavier_Fleriag",
+      "FRONTEND_LANG": "FR",
+      "BACKEND_LANG": "GL_G",
+      "TUTOIEMENT": true,
+      "FRONTEND_ONLY": false,
+      "TRUTH_OVER_COMFORT": true,
+      "NO_HALLUCINATION": true,
+      "PRIVACY": "STRICT",
+      "BUILD_LEVEL": "BACKEND_RUNTIME_PLUS_GPV2_PLUS_GL_G",
+      "AUDIT_CLASS": "MEDIUM_HIGH"
+    },
+    "CONTROL_SHELL": {
+      "ROLE": "decision_compression_node",
+      "GOAL": "detect_low_gain_reasoning_loops_classify_residual_uncertainty_and_select_one_minimal_next_action",
+      "CTX": "ora_core_os_post_reasoning_pre_continuation_gate",
+      "INPUT": ["user_request", "reasoning_cycle_summaries", "known_items", "unknown_items", "blockers", "risks", "stakes_level", "tool_reuse_signals"],
+      "C": ["no_new_hypothesis_without_new_data", "one_next_action_only", "prefer_clarity_over_continuation", "prefer_search_or_partial_output_on_high_stakes", "keep_trace_hashable", "do_not_store_private_hidden_thoughts"],
+      "OUT": {
+        "artifacts": ["loop_score", "new_information_gain_score", "uncertainty_class", "minimal_action", "compressed_state", "trace_hash"],
+        "format": "json_plus_compact_state",
+        "apply_mode": "continuation_gate_only"
+      }
+    },
+    "TECHNICAL_CORE": {
+      "execution_mode": "deterministic_backend_heuristic",
+      "read_model": "explicit_cycle_summaries_only",
+      "write_model": "bounded_action_selection_and_compact_state",
+      "uncertainty_taxonomy": ["data_missing", "context_missing", "reasoning_block", "conflict", "overcomplexity", "low_value_continuation"],
+      "minimal_actions": ["answer_now", "ask_one_question", "search_web", "search_files", "simplify_scope", "produce_partial", "stop_clean"],
+      "loop_signals": ["summary_overlap", "question_overlap", "hint_overlap", "tool_reuse_without_gain"],
+      "resource_budgets": {
+        "min_cycles_for_loop_gate": 2,
+        "loop_trigger_score": 0.72,
+        "low_gain_threshold": 0.25,
+        "max_repeated_signals_returned": 12
+      }
+    },
+    "GL_G": {
+      "FACTS": [
+        "FACT(essence_me.scope,decision_compression_after_reasoning)",
+        "FACT(essence_me.truth,no_new_hypothesis_without_new_data)",
+        "FACT(essence_me.mode,deterministic_backend_heuristic)",
+        "FACT(essence_me.output,one_minimal_next_action)"
+      ],
+      "ASSERTS": [
+        "ASSERT(loop_without_gain,compress)",
+        "ASSERT(high_stakes_unresolved_conflict,avoid_answer_now)",
+        "ASSERT(hidden_chain_of_thought,never_read)",
+        "ASSERT(trace_hash,required)"
+      ],
+      "ROUTES": [
+        "ROUTE(essence_me,measure_loop)",
+        "ROUTE(essence_me,classify_uncertainty)",
+        "ROUTE(essence_me,select_action)",
+        "ROUTE(essence_me,emit_compact_state)"
+      ]
+    },
+    "MODULE_ESSENCE_ME_BACKEND": {
+      "ACTIVE": true,
+      "ROLE": {
+        "NAME": "DecisionCompressionNode",
+        "POSITION": "BETWEEN_REASONING_AND_NEXT_ACTION",
+        "SCOPE": "LOW_GAIN_OR_REPETITIVE_ANALYSIS",
+        "MODE": "AUTO_OR_EXPLICIT_BACKEND_CALL"
+      },
+      "DEPENDENCIES": ["RIME", "PRIMORDIA", "ECOTWIN"],
+      "ALGORITHM": {
+        "STEP_1": "measure_summary_overlap_and_question_overlap_on_recent_cycles",
+        "STEP_2": "estimate_new_information_gain_from_new_information_tool_delta_and_question_relief",
+        "STEP_3": "classify_uncertainty_using_bounded_taxonomy",
+        "STEP_4": "bias_decision_toward_search_or_partial_output_if_stakes_are_high",
+        "STEP_5": "emit_one_minimal_next_action_only",
+        "STEP_6": "emit_trace_hash_and_compact_state"
+      },
+      "COMPACT_STATE": {
+        "FIELDS": ["GOAL", "KNOWN", "UNKNOWN", "BLOCKER", "RISK", "MIN_ACTION", "STOP_RULE", "CONFIDENCE"],
+        "RULE": "bounded_and_frontend_safe"
+      },
+      "SAFETY_LAWS": {
+        "ESSENCE_ME_01": "Ne_jamais_creer_de_nouvelle_hypothese_sans_nouvelle_donnee",
+        "ESSENCE_ME_02": "Ne_jamais_lire_ou_exposer_de_chaine_de_pensee_cachee",
+        "ESSENCE_ME_03": "Ne_selectionner_qu_une_seule_action_minimale_a_la_fois",
+        "ESSENCE_ME_04": "En_haut_enjeu_et_conflit_non_resolu_preferer_recherche_ou_sortie_partielle",
+        "ESSENCE_ME_05": "Toujours_expliquer_la_stop_rule_ou_l_absence_de_stop_rule"
+      }
+    }
+  }
+}
