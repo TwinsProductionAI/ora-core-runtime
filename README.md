@@ -12,6 +12,11 @@ Read this after [ora-core-os](https://github.com/TwinsProductionAI/ora-core-os) 
 | ---: | --- |
 | 2 | Runtime code, samples, registries, and tests. |
 
+## White Paper
+
+- [ORA Core Runtime Architecture White Paper](docs/ORA_CORE_RUNTIME_Architecture_WhitePaper.md)  
+  Technical overview of the executable runtime layer, GPV2 parsing, registries, runtime modules, samples, tests, and implementation boundary.
+
 ## Scope
 
 This repository is the publication-ready public bundle for:
