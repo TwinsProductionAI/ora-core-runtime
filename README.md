@@ -22,6 +22,7 @@ Read this after [ora-core-os](https://github.com/TwinsProductionAI/ora-core-os) 
 Essences are compressed behavioral micro-modules used for runtime routing and output shaping.
 
 - [ORA Essences Foundational Note](docs/ESSENCES_FOUNDATIONAL_NOTE.md)
+- [ORA Essence Language Map](docs/ORA_ESSENCE_LANGUAGE_MAP.md)
 - Seed registry: `ora-core-backend/src/essences/essences.seed.json`
 
 Core foundation:
@@ -30,6 +31,7 @@ Core foundation:
 Module = architecture
 Prompt = immediate instruction
 Essence = compressed reusable behavior
+ORA Essence symbol = compact route marker
 ```
 
 ## Scope
@@ -40,6 +42,7 @@ This repository is the publication-ready public bundle for:
 - GPV2 parsing and compilation
 - GL and GL_G primitives handling
 - ORA Essences seed registry
+- ORA Essence Language symbolic map
 - ESSENCE_ME decision-compression backend runtime
 - H-NERONS pre-emission factual governance runtime
 - glyph registry and letter bridge registry
@@ -68,6 +71,8 @@ These files are technical assets that benefit from:
 - `runtime/modules/essence-me/*`
 - `runtime/modules/h-nerons/*`
 - `ora-core-backend/src/essences/essences.seed.json`
+- `docs/ESSENCES_FOUNDATIONAL_NOTE.md`
+- `docs/ORA_ESSENCE_LANGUAGE_MAP.md`
 - `ora-core-backend/*`
 - `tests/*.ps1`
 
