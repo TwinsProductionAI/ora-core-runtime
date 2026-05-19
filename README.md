@@ -17,6 +17,21 @@ Read this after [ora-core-os](https://github.com/TwinsProductionAI/ora-core-os) 
 - [ORA Core Runtime Architecture White Paper](docs/ORA_CORE_RUNTIME_Architecture_WhitePaper.md)  
   Technical overview of the executable runtime layer, GPV2 parsing, registries, runtime modules, samples, tests, and implementation boundary.
 
+## ORA Essences
+
+Essences are compressed behavioral micro-modules used for runtime routing and output shaping.
+
+- [ORA Essences Foundational Note](docs/ESSENCES_FOUNDATIONAL_NOTE.md)
+- Seed registry: `ora-core-backend/src/essences/essences.seed.json`
+
+Core foundation:
+
+```text
+Module = architecture
+Prompt = immediate instruction
+Essence = compressed reusable behavior
+```
+
 ## Scope
 
 This repository is the publication-ready public bundle for:
@@ -24,6 +39,7 @@ This repository is the publication-ready public bundle for:
 - HGOV-aware runtime bootstrap
 - GPV2 parsing and compilation
 - GL and GL_G primitives handling
+- ORA Essences seed registry
 - ESSENCE_ME decision-compression backend runtime
 - H-NERONS pre-emission factual governance runtime
 - glyph registry and letter bridge registry
@@ -51,6 +67,7 @@ These files are technical assets that benefit from:
 - `runtime/sample_output.json`
 - `runtime/modules/essence-me/*`
 - `runtime/modules/h-nerons/*`
+- `ora-core-backend/src/essences/essences.seed.json`
 - `ora-core-backend/*`
 - `tests/*.ps1`
 
